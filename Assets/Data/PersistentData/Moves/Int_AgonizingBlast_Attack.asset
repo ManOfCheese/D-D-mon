@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985024e27de4c04438999cc5b1c1ac09, type: 3}
+  m_Name: Int_AgonizingBlast_Attack
+  m_EditorClassIdentifier: 
+  statToAttackWith: {fileID: 11400000, guid: 6cd235c0e3dc9664b91bb623d5871541, type: 2}
+  diceAmount: 01000000
+  diceTypes:
+  - {fileID: 11400000, guid: 3779024e3651f37489f113e8302e59f6, type: 2}
+  damageTypes:
+  - {fileID: 11400000, guid: e818acbf9a17a05448d2b2017ed6481a, type: 2}
+  staticDamageType: {fileID: 0}
+  staticDamage: 0
+  addStatModifierToDamage: 1

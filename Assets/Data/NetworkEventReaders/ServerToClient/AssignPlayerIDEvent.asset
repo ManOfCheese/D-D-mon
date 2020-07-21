@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a9ad324d16034448f5e7abb26f719f, type: 3}
+  m_Name: AssignPlayerIDEvent
+  m_EditorClassIdentifier: Assembly-CSharp::AssignPlayerID_NetworkEVent
+  displayName: Assign Player ID
+  eventQueue: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
+  assignedPlayerID: {fileID: 11400000, guid: fd2f4554d2f7de843889afff19281f8b, type: 2}
+  playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
+  playerCount: {fileID: 11400000, guid: 0cf9331544377554db59c2fdd7562438, type: 2}

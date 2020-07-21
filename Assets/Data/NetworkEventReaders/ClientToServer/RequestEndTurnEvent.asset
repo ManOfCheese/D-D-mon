@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46dc828077d9d34c984ce6eca537d94, type: 3}
+  m_Name: RequestEndTurnEvent
+  m_EditorClassIdentifier: 
+  displayName: RequestEndTurn
+  eventQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a, type: 2}
+  switchTurnEvent: {fileID: 11400000, guid: 0a1b1aacc2c1ef34d82e1aa0e6034b9b, type: 2}
+  whoseTurn: {fileID: 11400000, guid: 2c9571f0347ac554088a3afdec6aac99, type: 2}
+  playerCount: {fileID: 11400000, guid: 0cf9331544377554db59c2fdd7562438, type: 2}
+  playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}

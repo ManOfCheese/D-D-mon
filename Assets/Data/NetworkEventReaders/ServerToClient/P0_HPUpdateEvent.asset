@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ab127e55bf179438e302ac097d53d4, type: 3}
+  m_Name: P0_HPUpdateEvent
+  m_EditorClassIdentifier: 
+  displayName: Player0 HP Update
+  eventQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a, type: 2}
+  playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
+  clientValue: {fileID: 11400000, guid: 380b07df15502de4facb295894ff60c9, type: 2}
+  otherValue: {fileID: 11400000, guid: 8f677a9cf216dee4fbd26d222f4bcd66, type: 2}
+  changedValue: {fileID: 11400000, guid: 998312078be67dc4e82dc5f7245abd3d, type: 2}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: SwitchTurn
   eventQueue: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
-  whoseTurn: {fileID: 11400000, guid: 2c9571f0347ac554088a3afdec6aac99, type: 2}
-  playerCount: {fileID: 11400000, guid: 0cf9331544377554db59c2fdd7562438, type: 2}
+  clientWhoseTurn: {fileID: 11400000, guid: 2c9571f0347ac554088a3afdec6aac99, type: 2}
+  serverWhoseTurn: {fileID: 11400000, guid: 45ce61d6fca553c49bcbba0794c2edcc, type: 2}

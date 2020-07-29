@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Samples/PingServer.unity
-    guid: b02c4d8131da54d0cb45319d0498cbd0
-  - enabled: 0
-    path: Assets/Scenes/Samples/Asteroids.unity
-    guid: e1d9a388defac7049a631b0047b4278e
   - enabled: 1
-    path: Assets/Scenes/Client.unity
+    path: Assets/Scenes/0. Menu.unity
+    guid: 7efdbf7eb97bf8149a39868d0d487ca3
+  - enabled: 1
+    path: Assets/Scenes/1. CharacterSelection.unity
+    guid: d823613a6e1b03941898b11f5f6036fa
+  - enabled: 1
+    path: Assets/Scenes/2. ClientGame.unity
     guid: a732dc81085a81e418b80a415c174ff1
+  - enabled: 1
+    path: Assets/Scenes/2. HostGame.unity
+    guid: b7c7af0536a59594aa512cff155f842d
   m_configObjects: {}

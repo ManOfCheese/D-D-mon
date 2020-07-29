@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012d05d5e4a0a834fafc364186c4fd6e, type: 3}
   m_Name: AllCharacters_Set
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 1d89b5c52a82ed9409301124a1f0dad5, type: 2}
   useSorting: 1

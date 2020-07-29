@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7777e95587245a44fa025880dffd3b2d, type: 3}
+  m_Name: CharacterSelectedEvent
+  m_EditorClassIdentifier: 
+  displayName: Character Selected
+  eventQueue: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
+  character: {fileID: 11400000, guid: 85b840551bec3aa409ac3f8b4781c9b8, type: 2}
+  otherCharacter: {fileID: 11400000, guid: f48740f98db94cd488cb099babc758b7, type: 2}
+  playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
+  p0Character: {fileID: 11400000, guid: e2d44b16a5416c44c85a5756f416bfe5, type: 2}
+  p1Character: {fileID: 11400000, guid: 84755a3bbdbf0de448ce6f49e71dd3eb, type: 2}
+  allCharacters: {fileID: 11400000, guid: 551cafddc150fa74c942e17342df6b47, type: 2}

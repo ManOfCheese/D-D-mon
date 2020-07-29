@@ -6,14 +6,11 @@ using Unity.Networking.Transport;
 [CreateAssetMenu( fileName = "AssignPlayerIDEvent", menuName = "NetworkEvents/AssignPlayerIDEvent" )]
 public class AssignPlayerID_NetworkEvent : NetworkEvent {
 
-    [Header( "Variables to Send" )]
-    public IntValue assignedPlayerID;
-
-    [Header( "Variables to Update" )]
+    [Header( "Client Side" )]
     public IntValue playerID;
 
-    [Header( "References" )]
-    public IntValue playerCount;
+    [Header( "Server Side" )]
+    public IntValue assignedPlayerID;
 
     public override DataStreamWriter WritePacket( DataStreamWriter writer ) {
         writer.WriteInt( ID );

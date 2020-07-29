@@ -12,6 +12,7 @@ public class CharacterStat : PersistentSetElement {
 
     public CharacterStat_Set allPlayerStats;
     public StatType statType;
+    public Sprite statIcon;
     string statName;
 
     private void Awake() {

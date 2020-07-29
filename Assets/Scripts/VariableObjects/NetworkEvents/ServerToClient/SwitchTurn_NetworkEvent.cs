@@ -6,20 +6,20 @@ using Unity.Networking.Transport;
 [CreateAssetMenu( fileName = "SwitchTurnEvent", menuName = "NetworkEvents/SwitchTurnEvent" )]
 public class SwitchTurn_NetworkEvent : NetworkEvent {
 
-    [Header( "Variables to Update" )]
-    public IntValue whoseTurn;
+    [Header( "Client Side" )]
+    public IntValue clientWhoseTurn;
 
-    [Header( "References" )]
-    public IntValue playerCount;
+    [Header( "Server Side" )]
+    public IntValue serverWhoseTurn;
 
     public override DataStreamWriter WritePacket( DataStreamWriter writer ) {
         writer.WriteInt( ID );
-        writer.WriteInt( whoseTurn.Value );
+        writer.WriteInt( serverWhoseTurn.Value );
         return writer;
     }
 
     public override void ReadPacket( DataStreamReader stream ) {
         int newWhoseTurn = stream.ReadInt();
-        whoseTurn.Value = newWhoseTurn;
+        clientWhoseTurn.Value = newWhoseTurn;
     }
 }

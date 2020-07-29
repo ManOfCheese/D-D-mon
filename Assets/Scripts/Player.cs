@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    public StringValue playerName;
+    [Header( "References" )]
+    public Character_Set allCharacters;
+    public IntValue characterID;
     public IntValue hp;
 
     [Header( "Stats Dictionary" )]
@@ -15,10 +18,16 @@ public class Player : MonoBehaviour {
     public Action[] moves;
     public IntValue[] moveUses;
 
-    public Dictionary<CharacterStat, IntValue> statData;
-    public Dictionary<Action, IntValue> moveData;
+    protected Dictionary<CharacterStat, IntValue> statData;
+    protected Dictionary<Action, IntValue> moveData;
+    protected Character character;
 
     private void Awake() {
+        moves = new Action[ moveUses.Length ];
+        if ( characterID.Value >= 0 ) {
+            PickCharacter( characterID.Value );
+        }
+
         statData = new Dictionary<CharacterStat, IntValue>();
         for ( int i = 0; i < playerStats.Length; i++ ) {
             statData.Add( playerStats[ i ], statValues[ i ] );
@@ -30,4 +39,26 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void OnEnable() {
+        characterID.onValueChanged += PickCharacter;
+    }
+
+    public virtual void PickCharacter( int characterID ) {
+        this.character = allCharacters.Items[ characterID ];
+
+        SetStatsToDefault();
+    }
+
+    public void SetStatsToDefault() {
+        hp.Value = character.charHP;
+        for ( int i = 0; i < statValues.Length; i++ ) {
+            statValues[ i ].Value = character.stats[ i ];
+        }
+        for ( int i = 0; i < character.moveSet.Length; i++ ) {
+            moves[ i ] = character.moveSet[ i ];
+        }
+        for ( int i = 0; i < moveUses.Length; i++ ) {
+            moveUses[ i ].Value = moves[ i ].moveUses;
+        }
+    }
 }

@@ -8,6 +8,10 @@ public class Character : PersistentSetElement {
     public Character_Set allCharacters;
 
     public string charName;
+    public Sprite charFrontSprite;
+    public Sprite charBackSprite;
+    public int charLevel;
+    public int charHP;
     public Class charClass;
     public Action[] moveSet;
 

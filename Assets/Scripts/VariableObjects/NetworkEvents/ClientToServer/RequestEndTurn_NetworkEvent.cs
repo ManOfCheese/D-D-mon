@@ -7,15 +7,11 @@ using UnityEngine;
 [CreateAssetMenu( fileName = "RequestEndTurnEvent", menuName = "NetworkEvents/RequestEndTurnEvent" )]
 public class RequestEndTurn_NetworkEvent : NetworkEvent {
 
-    [Space ( 10 )]
-    public NetworkEvent switchTurnEvent;
-
-    [Header( "Variables to Update")]
-    public IntValue whoseTurn;
-
-    [Header( "References" )]
-    public IntValue playerCount;
+    [Header( "Client Side" )]
     public IntValue playerID;
+
+    [Header( "Server Side")]
+    public IntValue whoseTurn;
 
     public override DataStreamWriter WritePacket( DataStreamWriter writer ) {
         writer.WriteInt( ID );
@@ -33,7 +29,6 @@ public class RequestEndTurn_NetworkEvent : NetworkEvent {
             else {
                 whoseTurn.Value = 1;
             }
-            eventQueue.Add( switchTurnEvent );
         }
     }
 }

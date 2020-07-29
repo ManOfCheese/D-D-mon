@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0d81bfb0ab19248b0e4cb2e98babe5, type: 3}
+  m_Name: ClientIntValuesToSync
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 380b07df15502de4facb295894ff60c9, type: 2}
+  - {fileID: 11400000, guid: 602ca96e5e50503458369a5e664f499b, type: 2}
+  - {fileID: 11400000, guid: e835213a71fb1494c9de0c87a9a12afe, type: 2}
+  - {fileID: 11400000, guid: f7df1532de9a9054690ba4c61b52fa11, type: 2}
+  - {fileID: 11400000, guid: a4be06d910e2cc741b8c794fc6edfdf2, type: 2}
+  - {fileID: 11400000, guid: bdef6befc84126542adb6d383381fee3, type: 2}
+  - {fileID: 11400000, guid: cc43f2e77cb01194c96b117b8589a9cc, type: 2}
+  - {fileID: 11400000, guid: b9b14398433edfb48aa48c8b970cd024, type: 2}
+  - {fileID: 11400000, guid: 0c3218d93a8b7b64b9ec8681f8340629, type: 2}
+  - {fileID: 11400000, guid: 12614ab4833e128408a057694cdb3552, type: 2}
+  - {fileID: 11400000, guid: b809ad8927062e64ab8360c85c15205e, type: 2}
+  - {fileID: 11400000, guid: 3383140aa2f7a6248abcf0625a23d2e6, type: 2}
+  - {fileID: 11400000, guid: 5ac5af71770fbe249be70df10830b587, type: 2}
+  - {fileID: 11400000, guid: 03cef54fff7859a4e93dbaf8b7374286, type: 2}
+  - {fileID: 11400000, guid: 875e065bd05b2e648838dce1cd745b44, type: 2}
+  - {fileID: 11400000, guid: c2ef71e25c2b17e4f9605270d4e283d2, type: 2}
+  - {fileID: 11400000, guid: edc7506d792f73b49a14755d8be05ca2, type: 2}
+  - {fileID: 11400000, guid: 2bcbea05cd0f3094c963916b88396d4a, type: 2}
+  - {fileID: 11400000, guid: e40be1db54d470144bf7af02ebbaa3e2, type: 2}
+  - {fileID: 11400000, guid: 8af6b057a0442474689d0ff7d4bbd6c2, type: 2}
+  - {fileID: 11400000, guid: 9fd2d125a469a194b8bbdfe2beeb6afa, type: 2}
+  - {fileID: 11400000, guid: 072e16754d3b8eb46933307e72e5737e, type: 2}
+  - {fileID: 11400000, guid: e9769e6b765f28645a7517050de4f6da, type: 2}
+  - {fileID: 11400000, guid: b39b28b34d4216544995177c5efcfeb5, type: 2}
+  - {fileID: 11400000, guid: 6fd43e929f40d934c90627462fbc8107, type: 2}
+  - {fileID: 11400000, guid: 8f677a9cf216dee4fbd26d222f4bcd66, type: 2}
+  - {fileID: 11400000, guid: 5b83f3393085b1d48beaaa4406350117, type: 2}
+  - {fileID: 11400000, guid: f7fba8144782f8c469c09340adbf458b, type: 2}
+  - {fileID: 11400000, guid: 7d8e7197e9e20d544a23e9c16fc076ed, type: 2}
+  - {fileID: 11400000, guid: fcee337c4a4c3164cacd1044c0264a76, type: 2}
+  - {fileID: 11400000, guid: 1a586e833266d154ab2762c163d97f4b, type: 2}
+  - {fileID: 11400000, guid: 9dff2c1031dfa2640aa6b2bf2780bb26, type: 2}
+  - {fileID: 11400000, guid: f8ce07a2c540e7e4d860ceb444c3ad83, type: 2}
+  - {fileID: 11400000, guid: e8620e6af2f97cf45ac9fdabd6b8142d, type: 2}
+  - {fileID: 11400000, guid: 6f566c9f79802034e8929f963d88becb, type: 2}
+  - {fileID: 11400000, guid: c221facd0e9ecf34397164f8c7aa5cfe, type: 2}
+  - {fileID: 11400000, guid: cce13a65c1d9f9e40a7844585085b5df, type: 2}
+  - {fileID: 11400000, guid: fce7910e609b99440964d7f622f1f8ca, type: 2}
+  - {fileID: 11400000, guid: 74f10fe9cc0da0c48a4a3f47e2a383ad, type: 2}
+  - {fileID: 11400000, guid: fd6efb82605a73c40930813a15ebc95a, type: 2}
+  - {fileID: 11400000, guid: af898c589d467f445bc450ca5f730ab5, type: 2}
+  - {fileID: 11400000, guid: 00cface4e7551084b93e02a96fa36454, type: 2}
+  - {fileID: 11400000, guid: 08448e29b960b9b46bfef23661134beb, type: 2}
+  - {fileID: 11400000, guid: 514dc0bac9b468344b684523f7e8e5b6, type: 2}
+  - {fileID: 11400000, guid: ee136600782f9d64f8d2f3a11e0ce9b0, type: 2}
+  - {fileID: 11400000, guid: dd3e2af84996ed349a7ef21b1370ed4a, type: 2}
+  - {fileID: 11400000, guid: 94520b3ecb29b6940b1d0fb8a2e9b49e, type: 2}
+  - {fileID: 11400000, guid: ea6f4eb7697885d41bd75eef43caf198, type: 2}
+  - {fileID: 11400000, guid: 3e2c779936b85974f8861cca1e25ab23, type: 2}
+  - {fileID: 11400000, guid: 7d37d95313bbb5c42be0df03efe4c32b, type: 2}
+  useSorting: 0

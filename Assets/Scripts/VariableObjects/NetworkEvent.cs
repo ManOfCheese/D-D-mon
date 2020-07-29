@@ -7,9 +7,6 @@ public abstract class NetworkEvent : PersistentSetElement {
 
     public string displayName;
 
-    [Header ( "Reaction Events" )]
-    public NetworkEvents_RunTimeSet eventQueue;
-
     public virtual DataStreamWriter WritePacket( DataStreamWriter writer ) {
         writer.WriteInt( ID );
         return writer;

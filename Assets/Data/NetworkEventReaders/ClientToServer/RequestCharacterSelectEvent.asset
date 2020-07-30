@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: RequestCharSelect
   allCharacters: {fileID: 11400000, guid: 551cafddc150fa74c942e17342df6b47, type: 2}
+  serverToClientQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a,
+    type: 2}
   playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
   playerCharacterID: {fileID: 11400000, guid: 85b840551bec3aa409ac3f8b4781c9b8, type: 2}
+  reactionEvent: {fileID: 11400000, guid: 52b335b377f493b40b8f8e3ec863b75b, type: 2}
   p0PlayerCharacter: {fileID: 11400000, guid: e2d44b16a5416c44c85a5756f416bfe5, type: 2}
   p1PlayerCharacter: {fileID: 11400000, guid: 84755a3bbdbf0de448ce6f49e71dd3eb, type: 2}

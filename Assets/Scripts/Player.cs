@@ -24,18 +24,15 @@ public class Player : MonoBehaviour {
 
     private void Awake() {
         moves = new Action[ moveUses.Length ];
-        if ( characterID.Value >= 0 ) {
-            PickCharacter( characterID.Value );
-        }
 
         statData = new Dictionary<CharacterStat, IntValue>();
         for ( int i = 0; i < playerStats.Length; i++ ) {
             statData.Add( playerStats[ i ], statValues[ i ] );
         }
-
         moveData = new Dictionary<Action, IntValue>();
-        for ( int i = 0; i < moves.Length; i++ ) {
-            moveData.Add( moves[ i ], moveUses[ i ] );
+
+        if ( characterID.Value >= 0 ) {
+            PickCharacter( characterID.Value );
         }
     }
 
@@ -45,6 +42,14 @@ public class Player : MonoBehaviour {
 
     public virtual void PickCharacter( int characterID ) {
         this.character = allCharacters.Items[ characterID ];
+        for ( int i = 0; i < moves.Length; i++ ) {
+            moves[ i ] = this.character.moveSet[ i ];
+        }
+
+        moveData.Clear();
+        for ( int i = 0; i < moves.Length; i++ ) {
+            moveData.Add( moves[ i ], moveUses[ i ] );
+        }
 
         SetStatsToDefault();
     }

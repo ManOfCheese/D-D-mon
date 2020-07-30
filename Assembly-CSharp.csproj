@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2ACBF5F1-9A92-624F-A552-02AC1972307F}</ProjectGuid>
+    <ProjectGuid>{CEEDFAF7-01CE-3CFD-447D-44298C67344B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -75,7 +75,9 @@
     <Compile Include="Assets\Scripts\Debugging\StringDisplay.cs" />
     <Compile Include="Assets\Scripts\IntValueListener.cs" />
     <Compile Include="Assets\Scripts\IntValueUpdater.cs" />
+    <Compile Include="Assets\Scripts\Networking\CharacterSelectionChecker.cs" />
     <Compile Include="Assets\Scripts\Networking\ClientBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Networking\ConnectionChecker.cs" />
     <Compile Include="Assets\Scripts\Networking\EventSender.cs" />
     <Compile Include="Assets\Scripts\Networking\IntUpdateEventSender.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkBehaviourInstantiator.cs" />
@@ -84,7 +86,6 @@
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Temp\TurnSwapper.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UIResizer.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ClientToServer\RequestCharacterSelect_NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ClientToServer\RequestEndTurn_NetworkEvent.cs" />
@@ -316,13 +317,13 @@
       <HintPath>D:/Program Files/UnityHub/Editors/2019.3.15f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>D:/Github/D&amp;Démon/Library/PackageCache/com.unity.burst@1.3.0/Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/PackageCache/com.unity.burst@1.3.0/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>D:/Github/D&amp;Démon/Library/PackageCache/com.unity.collections@0.9.0-preview.5/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/PackageCache/com.unity.collections@0.9.0-preview.5/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Github/D&amp;Démon/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0-preview/Runtime/Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0-preview/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Program Files/UnityHub/Editors/2019.3.15f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -670,145 +671,145 @@
       <HintPath>D:/Program Files/UnityHub/Editors/2019.3.15f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.CacheServer">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
     </Reference>
     <Reference Include="Unity.NetCode.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.NetCode.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.NetCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Jobs">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Jobs.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Jobs.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Jobs.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Jobs.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Jobs.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Entities.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Entities.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.NetCode.Physics">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.NetCode.Physics.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.NetCode.Physics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Platforms.macOS.Build">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Platforms.macOS.Build.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Platforms.macOS.Build.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Properties.UI">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Properties.UI.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Properties.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Serialization.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Serialization.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Serialization.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Properties">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Properties.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Properties.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Build.SlimPlayerRuntime">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Build.SlimPlayerRuntime.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Build.SlimPlayerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Scenes.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Scenes.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Scenes.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Scenes.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Scenes.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Scenes.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Physics">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Physics.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Physics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Mathematics.Extensions.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Mathematics.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Physics.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Physics.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Physics.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.Hybrid.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Rendering.Hybrid.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Rendering.Hybrid.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.BuildUtils">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Entities.BuildUtils.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Entities.BuildUtils.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Serialization">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Serialization.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.NetCode">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.NetCode.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.NetCode.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.Hybrid.EndToEnd.Tests">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Entities.Hybrid.EndToEnd.Tests.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Entities.Hybrid.EndToEnd.Tests.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Deformations">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Deformations.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Deformations.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Physics.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Physics.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Physics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Properties.UI.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Properties.UI.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Properties.UI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Transforms">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Transforms.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Transforms.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Transforms.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Transforms.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Transforms.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Platforms.Windows.Build">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Platforms.Windows.Build.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Platforms.Windows.Build.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Networking.Transport">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Networking.Transport.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Networking.Transport.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Transforms.Hybrid">
-      <HintPath>D:/Github/D&amp;Démon/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
+      <HintPath>D:/Github/DandDémon/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

@@ -8,12 +8,14 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
 
     [Header( "References" )]
     public Character_Set allCharacters;
+    public NetworkEvents_RunTimeSet serverToClientQueue;
 
     [Header( "Client Side" )]
     public IntValue playerID;
     public IntValue playerCharacterID;
 
     [Header( "Server Side" )]
+    public NetworkEvent reactionEvent;
     public IntValue p0PlayerCharacter;
     public IntValue p1PlayerCharacter;
 
@@ -34,6 +36,7 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
         else if ( selectorPlayerID == 1 ) {
             p1PlayerCharacter.Value = selectedCharacter;
         }
+        serverToClientQueue.Add( reactionEvent );
     }
 
 }

@@ -185,52 +185,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &858399451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 858399453}
-  - component: {fileID: 858399452}
-  m_Layer: 0
-  m_Name: NetworkManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &858399452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858399451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b5d05c3578a4f4281b3613b6e9d1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allEvents: {fileID: 11400000, guid: 0ccba5efff359fe4a999671a21fea38a, type: 2}
-  eventsToSend: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
-  lastRecievedPacket: {fileID: 11400000, guid: 4f7cb3109cda5b744aa7200e1b7cf2b0, type: 2}
---- !u!4 &858399453
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858399451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403740597
@@ -736,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 2281037071234258091, guid: 9469cf559a9f4ae41a11b79b3dda47a8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2281037071234258091, guid: 9469cf559a9f4ae41a11b79b3dda47a8,
         type: 3}
@@ -1743,7 +1697,8 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8305893581759509315, guid: 9469cf559a9f4ae41a11b79b3dda47a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9469cf559a9f4ae41a11b79b3dda47a8, type: 3}
 --- !u!1 &2143306412
 GameObject:

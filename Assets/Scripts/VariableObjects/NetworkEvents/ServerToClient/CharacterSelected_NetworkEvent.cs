@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Networking.Transport;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu( fileName = "CharacterSelectedEvent", menuName = "NetworkEvents/CharacterSelectedEvent" )]
 public class CharacterSelected_NetworkEvent : NetworkEvent {

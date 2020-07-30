@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Unity.Networking.Transport;
 using Unity.Collections;
+using UnityEngine.SceneManagement;
 
 public class ClientBehaviour : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class ClientBehaviour : MonoBehaviour {
     public NetworkEvent_Set allEvents;
     public NetworkEvents_RunTimeSet eventsToSend;
     public StringValue lastRecievedPacket;
+    public BoolValue isConnected;
+    public int sceneToLoadOnDisconnect;
 
     public NetworkDriver driver;
     public NetworkConnection connection;
@@ -38,13 +41,15 @@ public class ClientBehaviour : MonoBehaviour {
         driver.ScheduleUpdate().Complete();
 
         if ( !connection.IsCreated ) {
-            Debug.Log( "Client | Something went wrong during connect" );
+            //Debug.Log( "Client | Something went wrong during connect" );
             return;
         }
+
         DataStreamReader stream;
         Unity.Networking.Transport.NetworkEvent.Type cmd;
         while ( ( cmd = connection.PopEvent( driver, out stream ) ) != Unity.Networking.Transport.NetworkEvent.Type.Empty ) {
             if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Connect ) {
+                isConnected.Value = true;
                 Debug.Log( "Client | We are now connected to the server" );
             }
             else if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Data ) {
@@ -57,6 +62,14 @@ public class ClientBehaviour : MonoBehaviour {
             }
             else if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Disconnect ) {
                 Debug.Log( "Client | Got disconnected from server" );
+                isConnected.Value = false;
+                SceneManager.LoadSceneAsync( sceneToLoadOnDisconnect );
+                if ( GameObject.Find( "ClientBehaviour" ) ) {
+                    Destroy( GameObject.Find( "ClientBehaviour" ) );
+                }
+                if ( GameObject.Find( "HostBehaviour" ) ) {
+                    Destroy( GameObject.Find( "HostBehaviour" ) );
+                }
                 connection = default( NetworkConnection );
             }
         }
@@ -66,7 +79,7 @@ public class ClientBehaviour : MonoBehaviour {
             var writer = driver.BeginSend( NetworkPipeline.Null, connection );
             writer = eventsToSend.Items[ i ].WritePacket( writer );
             driver.EndSend( writer );
-            eventsToSend.Remove( eventsToSend.Items[ i ] );
         }
+        eventsToSend.Items.Clear();
     }
 }

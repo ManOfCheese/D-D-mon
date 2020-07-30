@@ -43,33 +43,44 @@ public class UIManager : MonoBehaviour {
 
     public virtual void OnEnable() {
         hp.onValueChanged += OnHPChange;
+        otherCharacterID.onValueChanged += OtherCharacterIDChanged;
     }
 
     public virtual void InitializeUI() {
         thisCharacter = allCharacters.Items[ characterID.Value ];
-        otherCharacter = allCharacters.Items[ otherCharacterID.Value ];
 
         charNameText.text = thisCharacter.charName;
         charLevelText.text = "Lvl. " + thisCharacter.charLevel.ToString();
         charImage.sprite = thisCharacter.charBackSprite;
         charHP.text = hp.Value + " / " + thisCharacter.charHP;
 
-        otherCharNameText.text = otherCharacter.charName;
-        otherCharLevelText.text = "Lvl. " + otherCharacter.charLevel.ToString();
-        otherCharImage.sprite = otherCharacter.charFrontSprite;
-
         for ( int i = 0; i < moveNamesText.Length; i++ ) {
             moveNamesText[ i ].text = thisCharacter.moveSet[ i ].moveName;
         }
         for ( int i = 0; i < moveUsesText.Length; i++ ) {
-            moveUsesText[ i ].text = moveUses[ i ].ToString() + " / " + thisCharacter.moveSet[ i ].moveUses.ToString();
+            moveUsesText[ i ].text = moveUses[ i ].Value.ToString() + " / " + thisCharacter.moveSet[ i ].moveUses.ToString();
         }
         for ( int i = 0; i < statIcons.Length; i++ ) {
             statIcons[ i ].sprite = characterStats[ i ].statIcon;
         }
         for ( int i = 0; i < statValueTexts.Length; i++ ) {
-            statValueTexts[ i ].text = statValues[ i ].ToString();
+            statValueTexts[ i ].text = statValues[ i ].Value.ToString();
         }
+
+        if ( otherCharacter != null ) {
+            InitializeOtherCharacterUI();
+        }
+    }
+
+    public void InitializeOtherCharacterUI() {
+        otherCharNameText.text = otherCharacter.charName;
+        otherCharLevelText.text = "Lvl. " + otherCharacter.charLevel.ToString();
+        otherCharImage.sprite = otherCharacter.charFrontSprite;
+    }
+
+    public void OtherCharacterIDChanged( int newValue ) {
+        otherCharacter = allCharacters.Items[ newValue];
+        InitializeOtherCharacterUI();
     }
 
     public void OnMoveUsesChange( int newValue ) {

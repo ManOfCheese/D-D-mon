@@ -437,9 +437,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 794507373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf572c275ac15924d81d904eda5da0e5, type: 3}
+  m_Script: {fileID: 11500000, guid: afcb1ec0febe9604687853ac2df3cae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHost: {fileID: 11400000, guid: 1dfca3b226eccb7418d1b991aee80dab, type: 2}
+  isConnected: {fileID: 11400000, guid: 059e2ca03636d3449a57f69182a9cb3c, type: 2}
+  connectionCount: {fileID: 11400000, guid: 61dba4b4374f2d74f8c64da605db968d, type: 2}
 --- !u!1 &1038361597
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,17 +538,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 794507375}
         m_MethodName: InstantiateHostBehaviour
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 794507376}
-        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -972,17 +964,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 794507375}
         m_MethodName: InstantiateClientBehaviour
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 794507376}
-        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

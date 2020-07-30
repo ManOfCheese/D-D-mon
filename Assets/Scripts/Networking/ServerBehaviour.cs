@@ -11,6 +11,7 @@ public class ServerBehaviour : MonoBehaviour {
     [Header( "References" )]
     public NetworkEvent_Set allEvents;
     public NetworkEvents_RunTimeSet eventsToSend;
+    public IntValue connectionCount;
 
     [Header( "Events" )]
     public AssignPlayerID_NetworkEvent assignPlayerIDEvent;
@@ -50,7 +51,9 @@ public class ServerBehaviour : MonoBehaviour {
         for ( int i = 0; i < connections.Length; i++ ) {
             if ( !connections[ i ].IsCreated ) {
                 connections.RemoveAtSwapBack( i );
+                Debug.Log( "Removed connection" );
                 --i;
+                connectionCount.Value -= 1;
             }
         }
 
@@ -58,6 +61,7 @@ public class ServerBehaviour : MonoBehaviour {
         NetworkConnection connection;
         while ( ( connection = driver.Accept() ) != default( NetworkConnection ) ) {
             connections.Add( connection );
+            connectionCount.Value += 1;
 
             if ( connections.Length == 1 ) {
                 assignedPlayerID.Value = 0;
@@ -82,35 +86,39 @@ public class ServerBehaviour : MonoBehaviour {
 
         DataStreamReader stream;
         for ( int i = 0; i < connections.Length; i++ ) {
-            //if ( !connections[ i ].IsCreated )
+            //if ( !connections[ i ].IsCreated ) {
+            //    Debug.Log( "Ja dat is kut" );
             //    continue;
+            //}
 
             Unity.Networking.Transport.NetworkEvent.Type eventType;
             while ( ( eventType = driver.PopEventForConnection( connections[ i ], out stream ) ) !=
                 Unity.Networking.Transport.NetworkEvent.Type.Empty ) {
                 if ( eventType == Unity.Networking.Transport.NetworkEvent.Type.Data ) {
                     int packetID = stream.ReadInt();
-                    Debug.Log( "Server | Recieved packet: " + allEvents.Items[ packetID ].displayName );
+                    Debug.Log( "Server | Recieved packet: " + allEvents.Items[ packetID ].displayName + " | Connections: " + i +
+                        "-" + ( connections.Length - 1 ) );
 
                     //Handle recieved events.
                     allEvents.Items[ packetID ].ReadPacket( stream );
                 }
                 else if ( eventType == Unity.Networking.Transport.NetworkEvent.Type.Disconnect ) {
-                    Debug.Log( "Server | Client disconnected from server" );
+                    Debug.Log( "Server | Client disconnected from server" + " | Connections: " + i + "-" + ( connections.Length - 1 ) );
                     connections[ i ] = default( NetworkConnection );
                 }
             }
+        }
 
+        for ( int i = 0; i < connections.Length; i++ ) {
             //Send queued events.
             for ( int j = 0; j < eventsToSend.Items.Count; j++ ) {
-                Debug.Log( "Server | Sending packet: " + eventsToSend.Items[ j ].displayName );
+                Debug.Log( "Server | Sending packet: " + eventsToSend.Items[ j ].displayName + " | Connections: " + i + "-"
+                    + ( connections.Length - 1 ) );
                 var writer = driver.BeginSend( NetworkPipeline.Null, connections[ i ] );
                 writer = eventsToSend.Items[ j ].WritePacket( writer );
                 driver.EndSend( writer );
-                if ( i == connections.Length - 1 ) {
-                    eventsToSend.Remove( eventsToSend.Items[ j ] );
-                }
             }
         }
+        eventsToSend.Items.Clear();
     }
 }

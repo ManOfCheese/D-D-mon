@@ -14,6 +14,7 @@ public class RunTimeSet<T> : ScriptableObject {
 	public void Add( T item ) {
 		if ( !Items.Contains( item ) ) {
 			Items.Add( item );
+            Debug.Log( "Added: " + item );
 			if ( OnAdded != null ) {
 				OnAdded.Invoke( item );
 			}
@@ -22,7 +23,8 @@ public class RunTimeSet<T> : ScriptableObject {
 
 	public void Remove( T item ) {
 		Items.Remove( item );
-		if ( OnRemoved != null ) {
+        Debug.Log( "Removed: " + item );
+        if ( OnRemoved != null ) {
 			OnRemoved.Invoke( item );
 		}
 	}

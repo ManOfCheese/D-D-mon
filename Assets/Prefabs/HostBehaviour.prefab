@@ -69,7 +69,7 @@ MonoBehaviour:
   eventsToSend: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
   lastRecievedPacket: {fileID: 11400000, guid: 4f7cb3109cda5b744aa7200e1b7cf2b0, type: 2}
   isConnected: {fileID: 11400000, guid: 059e2ca03636d3449a57f69182a9cb3c, type: 2}
-  sceneToLoadOnDisconnect: 0
+  sceneToLoadOnDisconnect: 1
 --- !u!114 &872465153728501589
 MonoBehaviour:
   m_ObjectHideFlags: 0

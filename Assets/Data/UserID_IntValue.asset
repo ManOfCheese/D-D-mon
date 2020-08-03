@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UserID_IntValue
   m_EditorClassIdentifier: 
   displayName: User ID
-  applyDefaultOnStartup: 1
+  applyDefaultOnStartup: 0
   changedThisFrame: 0
   _value: 0
   playerID: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IsHost_BoolValue
   m_EditorClassIdentifier: 
   displayName: Is Host
-  applyDefaultOnStartup: 1
+  applyDefaultOnStartup: 0
   changedThisFrame: 0
   _value: 0
   defaultValue: 0

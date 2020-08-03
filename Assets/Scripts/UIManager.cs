@@ -63,27 +63,19 @@ public class UIManager : MonoBehaviour {
             statValueTexts[ i ].text = statValues[ i ].Value.ToString();
         }
 
-        if ( otherCharacter != null ) {
+        if ( otherCharacterID.Value >= 0 ) {
+            otherCharacter = allCharacters.Items[ otherCharacterID.Value ];
             InitializeOtherCharacterUI();
         }
+        UpdateActionUI( null );
     }
 
     public void UpdateActionUI( Action action ) {
-        if ( actionList.Items.Count == 4 ) {
-            for ( int i = 0; i < actionList.Items.Count; i++ ) {
-                moveNamesText[ i ].text = actionList.Items[ i ].moveName;
-            }
-            for ( int i = 0; i < actionList.Items.Count; i++ ) {
-                moveUsesText[ i ].text = moveUses[ i ].Value.ToString() + " / " + actionList.Items[ i ].moveUses.ToString();
-            }
+        for ( int i = 0; i < actionList.Items.Count; i++ ) {
+            moveNamesText[ i ].text = actionList.Items[ i ].moveName;
         }
-        else {
-            for ( int i = 0; i < actionList.Items.Count; i++ ) {
-                moveNamesText[ i ].text = "";
-            }
-            for ( int i = 0; i < actionList.Items.Count; i++ ) {
-                moveUsesText[ i ].text = 0 + " / " + 0;
-            }
+        for ( int i = 0; i < actionList.Items.Count; i++ ) {
+            moveUsesText[ i ].text = moveUses[ i ].Value.ToString() + " / " + actionList.Items[ i ].moveUses.ToString();
         }
     }
 
@@ -94,7 +86,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OtherCharacterIDChanged( int newValue ) {
-        otherCharacter = allCharacters.Items[ newValue];
+        otherCharacter = allCharacters.Items[ newValue ];
         InitializeOtherCharacterUI();
     }
 

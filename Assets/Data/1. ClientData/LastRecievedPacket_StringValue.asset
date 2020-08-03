@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LastRecievedPacket_StringValue
   m_EditorClassIdentifier: 
   displayName: Last Recieved Pacekt
-  applyDefaultOnStartup: 1
+  applyDefaultOnStartup: 0
   changedThisFrame: 1
   _value: 
   defaultValue: 

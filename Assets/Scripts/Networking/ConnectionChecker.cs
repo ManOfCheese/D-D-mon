@@ -16,7 +16,7 @@ public class ConnectionChecker : MonoBehaviour {
             }
         }
         else if ( isConnected.Value ) {
-            SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 1 );
+            SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 2 );
         }
     }
 }

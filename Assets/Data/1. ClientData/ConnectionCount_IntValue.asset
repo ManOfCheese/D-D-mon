@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ConnectionCount_IntValue
   m_EditorClassIdentifier: 
   displayName: Connection Count
-  applyDefaultOnStartup: 1
+  applyDefaultOnStartup: 0
   changedThisFrame: 0
   _value: 0
   playerID: {fileID: 0}

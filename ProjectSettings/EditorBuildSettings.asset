@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0. ServerLogIn.unity
-    guid: ca6cc4107dcbd5e45b8d5ceba4ff6a0b
-  - enabled: 1
-    path: Assets/Scenes/1. LogIn.unity
+    path: Assets/Scenes/0. LogIn.unity
     guid: d98bee4f4834a294ebdfc2b1e8e3b8fd
   - enabled: 1
-    path: Assets/Scenes/2. FindGame.unity
+    path: Assets/Scenes/1. FindGame.unity
     guid: 7efdbf7eb97bf8149a39868d0d487ca3
+  - enabled: 1
+    path: Assets/Scenes/2. ServerLogIn.unity
+    guid: ca6cc4107dcbd5e45b8d5ceba4ff6a0b
   - enabled: 1
     path: Assets/Scenes/3. CharacterSelection.unity
     guid: d823613a6e1b03941898b11f5f6036fa

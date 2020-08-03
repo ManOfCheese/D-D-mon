@@ -9,6 +9,9 @@ public class Action : PersistentSetElement {
     [TextArea]
     public string moveDescription;
     public int moveUses;
-    public AEffect[] movesToPerform;
+    public AttackEffect[] attackEffects;
+    public HealEffect[] healEffects;
+    public DefendEffect[] defendEffects;
+    public SavingThrowEffect[] savingThrowEffects;
 
 }

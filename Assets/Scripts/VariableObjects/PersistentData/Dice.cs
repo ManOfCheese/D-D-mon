@@ -13,4 +13,8 @@ public class Dice : PersistentSetElement {
     private void Awake() {
         allDice.Add( this );
     }
+
+    public int RollDice() {
+        return Random.Range( 0, sides ) + 1;
+    }
 }

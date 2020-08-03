@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CharSelectSceneLoader.cs" />
     <Compile Include="Assets\Scripts\CombatManager.cs" />
     <Compile Include="Assets\Scripts\Debugging\BoolToggle.cs" />
     <Compile Include="Assets\Scripts\Debugging\DebugMenuInstantiator.cs" />
@@ -80,15 +79,18 @@
     <Compile Include="Assets\Scripts\Networking\ConnectionChecker.cs" />
     <Compile Include="Assets\Scripts\Networking\EventSender.cs" />
     <Compile Include="Assets\Scripts\Networking\IntUpdateEventSender.cs" />
+    <Compile Include="Assets\Scripts\Networking\LogIn.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkBehaviourInstantiator.cs" />
     <Compile Include="Assets\Scripts\Networking\ServerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\RPGMath.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Temp\TurnSwapper.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ClientToServer\RequestCharacterSelect_NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ClientToServer\RequestEndTurn_NetworkEvent.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ClientToServer\RequestUseMove_NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ServerToClient\AssignPlayerID_NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ServerToClient\CharacterSelected_NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\NetworkEvents\ServerToClient\HiddenIntUpdate_NetworkEvent.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Assets\Scripts\VariableObjects\PersistentData\Moves\SavingThrowEffect.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSet.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSetElement.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Action_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\BoolValue_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\CharacterStat_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Character_Set.cs" />
@@ -117,13 +120,14 @@
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Dice_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\FloatValue_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\IntValue_Set.cs" />
-    <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Move_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\NetworkEvent_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\StringValue_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Vector2_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Vector3_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\RunTimeSet.cs" />
-    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\NetworkEvents_RunTimeSet.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\Action_RunTimeSet.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\IntValue_RunTimeSEt.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\NetworkEvent_RunTimeSet.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\VariableObject.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\Variables\BoolValue.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\Variables\FloatValue.cs" />

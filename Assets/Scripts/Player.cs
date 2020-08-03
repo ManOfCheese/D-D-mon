@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     [Header( "References" )]
     public Character_Set allCharacters;
+    public Action_RunTimeSet actionList;
     public IntValue characterID;
     public IntValue hp;
 
@@ -18,9 +19,9 @@ public class Player : MonoBehaviour {
     public Action[] moves;
     public IntValue[] moveUses;
 
-    protected Dictionary<CharacterStat, IntValue> statData;
-    protected Dictionary<Action, IntValue> moveData;
-    protected Character character;
+    public Dictionary<CharacterStat, IntValue> statData;
+    public Dictionary<Action, IntValue> moveData;
+    public Character character;
 
     private void Awake() {
         moves = new Action[ moveUses.Length ];
@@ -42,6 +43,13 @@ public class Player : MonoBehaviour {
 
     public virtual void PickCharacter( int characterID ) {
         this.character = allCharacters.Items[ characterID ];
+
+        if ( actionList != null ) {
+            for ( int i = 0; i < this.character.moveSet.Length; i++ ) {
+                actionList.Add( this.character.moveSet[ i ] );
+            }
+        }
+
         for ( int i = 0; i < moves.Length; i++ ) {
             moves[ i ] = this.character.moveSet[ i ];
         }

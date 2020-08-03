@@ -10,7 +10,7 @@ public class ClientBehaviour : MonoBehaviour {
 
     [Header( "References" )]
     public NetworkEvent_Set allEvents;
-    public NetworkEvents_RunTimeSet eventsToSend;
+    public NetworkEvent_RunTimeSet eventsToSend;
     public StringValue lastRecievedPacket;
     public BoolValue isConnected;
     public int sceneToLoadOnDisconnect;

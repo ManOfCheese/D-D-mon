@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IntUpdateEventSender : MonoBehaviour {
 
-    public NetworkEvents_RunTimeSet eventQueue;
+    public NetworkEvent_RunTimeSet eventQueue;
     public IntValue[] intValues;
     public NetworkEvent networkEvent;
 

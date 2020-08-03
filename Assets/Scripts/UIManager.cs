@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
     [Header( "References" )]
     public Character_Set allCharacters;
+    public Action_RunTimeSet actionList;
 
     [Header( "ThisPlayer References" )]
     public IntValue hp;
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour {
     public virtual void OnEnable() {
         hp.onValueChanged += OnHPChange;
         otherCharacterID.onValueChanged += OtherCharacterIDChanged;
+        actionList.OnAdded += UpdateActionUI;
     }
 
     public virtual void InitializeUI() {
@@ -54,12 +56,6 @@ public class UIManager : MonoBehaviour {
         charImage.sprite = thisCharacter.charBackSprite;
         charHP.text = hp.Value + " / " + thisCharacter.charHP;
 
-        for ( int i = 0; i < moveNamesText.Length; i++ ) {
-            moveNamesText[ i ].text = thisCharacter.moveSet[ i ].moveName;
-        }
-        for ( int i = 0; i < moveUsesText.Length; i++ ) {
-            moveUsesText[ i ].text = moveUses[ i ].Value.ToString() + " / " + thisCharacter.moveSet[ i ].moveUses.ToString();
-        }
         for ( int i = 0; i < statIcons.Length; i++ ) {
             statIcons[ i ].sprite = characterStats[ i ].statIcon;
         }
@@ -69,6 +65,25 @@ public class UIManager : MonoBehaviour {
 
         if ( otherCharacter != null ) {
             InitializeOtherCharacterUI();
+        }
+    }
+
+    public void UpdateActionUI( Action action ) {
+        if ( actionList.Items.Count == 4 ) {
+            for ( int i = 0; i < actionList.Items.Count; i++ ) {
+                moveNamesText[ i ].text = actionList.Items[ i ].moveName;
+            }
+            for ( int i = 0; i < actionList.Items.Count; i++ ) {
+                moveUsesText[ i ].text = moveUses[ i ].Value.ToString() + " / " + actionList.Items[ i ].moveUses.ToString();
+            }
+        }
+        else {
+            for ( int i = 0; i < actionList.Items.Count; i++ ) {
+                moveNamesText[ i ].text = "";
+            }
+            for ( int i = 0; i < actionList.Items.Count; i++ ) {
+                moveUsesText[ i ].text = 0 + " / " + 0;
+            }
         }
     }
 

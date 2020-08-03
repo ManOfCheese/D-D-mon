@@ -7,6 +7,6 @@ public class DefendEffect : AEffect {
 
     public DamageType[] defendsAgainst;
     [Range(0.0f, 1.0f)]
-    public float[] damageReduction;
+    public float[] defenseIncrease;
 
 }

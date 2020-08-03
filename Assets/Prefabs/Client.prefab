@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCharacters: {fileID: 11400000, guid: 551cafddc150fa74c942e17342df6b47, type: 2}
+  actionList: {fileID: 11400000, guid: ad5100bf5cebf0447abfe29dff66adbb, type: 2}
   characterID: {fileID: 11400000, guid: 85b840551bec3aa409ac3f8b4781c9b8, type: 2}
   hp: {fileID: 11400000, guid: 380b07df15502de4facb295894ff60c9, type: 2}
   playerStats:
@@ -67,6 +68,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0c5ce61f2997264d93e257874300616, type: 2}
   - {fileID: 11400000, guid: 0b5ccc59e91c454468d33ce59f5c10db, type: 2}
   - {fileID: 11400000, guid: c6236f458935c0f4baebbcae6c50b6df, type: 2}
+  - {fileID: 11400000, guid: 8dad1c97e81700f4492037492d4a57da, type: 2}
   statValues:
   - {fileID: 11400000, guid: 602ca96e5e50503458369a5e664f499b, type: 2}
   - {fileID: 11400000, guid: e835213a71fb1494c9de0c87a9a12afe, type: 2}
@@ -88,12 +90,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e40be1db54d470144bf7af02ebbaa3e2, type: 2}
   - {fileID: 11400000, guid: 8af6b057a0442474689d0ff7d4bbd6c2, type: 2}
   - {fileID: 11400000, guid: 9fd2d125a469a194b8bbdfe2beeb6afa, type: 2}
+  - {fileID: 11400000, guid: d2671ae5365315e4d80e2a291aca84f8, type: 2}
   moves: []
   moveUses:
   - {fileID: 11400000, guid: 072e16754d3b8eb46933307e72e5737e, type: 2}
   - {fileID: 11400000, guid: e9769e6b765f28645a7517050de4f6da, type: 2}
   - {fileID: 11400000, guid: b39b28b34d4216544995177c5efcfeb5, type: 2}
   - {fileID: 11400000, guid: 6fd43e929f40d934c90627462fbc8107, type: 2}
+  character: {fileID: 0}
 --- !u!1 &2281037071234258088
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCharacters: {fileID: 11400000, guid: 551cafddc150fa74c942e17342df6b47, type: 2}
+  actionList: {fileID: 0}
   characterID: {fileID: 11400000, guid: f48740f98db94cd488cb099babc758b7, type: 2}
   hp: {fileID: 11400000, guid: 8f677a9cf216dee4fbd26d222f4bcd66, type: 2}
   playerStats:
@@ -194,6 +199,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0c5ce61f2997264d93e257874300616, type: 2}
   - {fileID: 11400000, guid: 0b5ccc59e91c454468d33ce59f5c10db, type: 2}
   - {fileID: 11400000, guid: c6236f458935c0f4baebbcae6c50b6df, type: 2}
+  - {fileID: 11400000, guid: 8dad1c97e81700f4492037492d4a57da, type: 2}
   statValues:
   - {fileID: 11400000, guid: 5b83f3393085b1d48beaaa4406350117, type: 2}
   - {fileID: 11400000, guid: f7fba8144782f8c469c09340adbf458b, type: 2}
@@ -215,12 +221,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 514dc0bac9b468344b684523f7e8e5b6, type: 2}
   - {fileID: 11400000, guid: ee136600782f9d64f8d2f3a11e0ce9b0, type: 2}
   - {fileID: 11400000, guid: dd3e2af84996ed349a7ef21b1370ed4a, type: 2}
+  - {fileID: 11400000, guid: 1f8a32842e30cc642a67a6eeb0338e52, type: 2}
   moves: []
   moveUses:
   - {fileID: 11400000, guid: 94520b3ecb29b6940b1d0fb8a2e9b49e, type: 2}
   - {fileID: 11400000, guid: ea6f4eb7697885d41bd75eef43caf198, type: 2}
   - {fileID: 11400000, guid: 3e2c779936b85974f8861cca1e25ab23, type: 2}
   - {fileID: 11400000, guid: 7d37d95313bbb5c42be0df03efe4c32b, type: 2}
+  character: {fileID: 0}
 --- !u!1001 &2078074686331267048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2488,6 +2496,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7751664197136132806, guid: 9184f3b278296ba49ac0a519c45628f2,
+        type: 3}
+      propertyPath: actionList
+      value: 
+      objectReference: {fileID: 11400000, guid: ad5100bf5cebf0447abfe29dff66adbb,
+        type: 2}
     - target: {fileID: 7797243403998234873, guid: 9184f3b278296ba49ac0a519c45628f2,
         type: 3}
       propertyPath: m_FontData.m_MaxSize

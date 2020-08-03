@@ -12,7 +12,6 @@ public class SavingThrowEffect : AEffect {
     public Dice[] diceTypes;
     public DamageType[] damageTypes;
 
-
     [Header( "Static Damage" )]
     public DamageType staticDamageType;
     public int staticDamage;

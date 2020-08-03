@@ -8,7 +8,7 @@ public class Class : PersistentSetElement {
     public Class_Set allClasses;
 
     public string className;
-    public Move_Set moveSet;
+    public Action_Set moveSet;
 
 
     private void Awake() {

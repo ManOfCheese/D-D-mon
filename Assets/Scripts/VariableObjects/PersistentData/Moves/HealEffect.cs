@@ -9,9 +9,9 @@ public class HealEffect : AEffect {
     public int[] diceAmount;
     public Dice[] diceTypes;
 
-    [Header( "Static Healinh" )]
+    [Header( "Static Healing" )]
     public int staticHealing;
-    public bool addStatModifierToDamage;
+    public bool addStatModifierToHealing;
 
 }
 

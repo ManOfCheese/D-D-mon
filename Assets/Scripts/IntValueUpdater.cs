@@ -6,7 +6,7 @@ public class IntValueUpdater : MonoBehaviour {
 
     public IntValue intValue;
     public NetworkEvent networkEventToSend;
-    public NetworkEvents_RunTimeSet serverToClientRunTimeSet;
+    public NetworkEvent_RunTimeSet serverToClientRunTimeSet;
 
     private void OnEnable() {
         intValue.onValueChanged += SendUpdateEvent;

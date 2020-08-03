@@ -14,6 +14,8 @@ public class Character : PersistentSetElement {
     public int charHP;
     public Class charClass;
     public Action[] moveSet;
+    public CharacterStat attackStat;
+    public CharacterStat spellStat;
 
     [Header( "Stats" )]
     public int[] stats;

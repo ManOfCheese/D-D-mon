@@ -8,7 +8,7 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
 
     [Header( "References" )]
     public Character_Set allCharacters;
-    public NetworkEvents_RunTimeSet serverToClientQueue;
+    public NetworkEvent_RunTimeSet serverToClientQueue;
 
     [Header( "Client Side" )]
     public IntValue playerID;
@@ -38,5 +38,4 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
         }
         serverToClientQueue.Add( reactionEvent );
     }
-
 }

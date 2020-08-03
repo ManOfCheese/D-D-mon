@@ -12,7 +12,9 @@ public class AttackEffect : AEffect {
 
     [Header( "Static Damage" )]
     public DamageType staticDamageType;
+    public int staticDamage;
     public int weaponBonus;
+    public DamageType statModifierDamageType;
     public bool addStatModifierToDamage;
 
 }

@@ -16,5 +16,8 @@ MonoBehaviour:
   moveDescription: A powerful beam of radiant energy, especially effective against
     unholy beings. Deals 6d8 radiant damage, plus 1d8 for every lvl beyond 6th.
   moveUses: 2
-  movesToPerform:
+  attackEffects: []
+  healEffects: []
+  defendEffects: []
+  savingThrowEffects:
   - {fileID: 11400000, guid: 472e68f2822d1a84da88e16a70f80948, type: 2}

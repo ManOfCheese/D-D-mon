@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,22 +22,26 @@ public class UIManager : MonoBehaviour {
     public Text charLevelText;
     public Image charImage;
     public Text charHP;
+    public Image hpBar;
     public Text[] moveNamesText;
     public Text[] moveUsesText;
     public Image[] statIcons;
     public Text[] statValueTexts;
 
     [Header( "OtherPlayer References" )]
-    public IntValue otherHP;
+    public IntValue otherHp;
     public IntValue otherCharacterID;
 
     [Space( 10 )]
     public Text otherCharNameText;
     public Text otherCharLevelText;
+    public Image otherHpBar;
     public Image otherCharImage;
 
     private Character thisCharacter;
     private Character otherCharacter;
+    private float hpBarStartWidth;
+    private float otherHpBarStartWidth;
 
     private void Start() {
         InitializeUI();
@@ -44,17 +49,25 @@ public class UIManager : MonoBehaviour {
 
     public virtual void OnEnable() {
         hp.onValueChanged += OnHPChange;
+        otherHp.onValueChanged += OnOtherHPChange;
         otherCharacterID.onValueChanged += OtherCharacterIDChanged;
         actionList.OnAdded += UpdateActionUI;
     }
 
     public virtual void InitializeUI() {
-        thisCharacter = allCharacters.Items[ characterID.Value ];
+        if ( characterID.Value > -1 ) {
+            thisCharacter = allCharacters.Items[ characterID.Value ];
+        }
 
-        charNameText.text = thisCharacter.charName;
-        charLevelText.text = "Lvl. " + thisCharacter.charLevel.ToString();
-        charImage.sprite = thisCharacter.charBackSprite;
-        charHP.text = hp.Value + " / " + thisCharacter.charHP;
+        if ( thisCharacter != null ) {
+            charNameText.text = thisCharacter.charName;
+            charLevelText.text = "Lvl. " + thisCharacter.charLevel.ToString();
+            charImage.sprite = thisCharacter.charBackSprite;
+            charHP.text = hp.Value + " / " + thisCharacter.charHP;
+        }
+
+        hpBarStartWidth = hpBar.rectTransform.sizeDelta.x;
+        otherHpBarStartWidth = otherHpBar.rectTransform.sizeDelta.x;
 
         for ( int i = 0; i < statIcons.Length; i++ ) {
             statIcons[ i ].sprite = characterStats[ i ].statIcon;
@@ -97,6 +110,26 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OnHPChange( int newValue ) {
-        charHP.text = hp.Value + " / " + thisCharacter.charHP;
+        if ( thisCharacter != null ) {
+            charHP.text = hp.Value + " / " + thisCharacter.charHP;
+            UpdateHPBar( false );
+        }
+    }
+
+    public void OnOtherHPChange( int newValue ) {
+        if ( otherCharacter != null ) {
+            UpdateHPBar( true );
+        }
+    }
+
+    public void UpdateHPBar( bool isOther ) {
+        if ( isOther ) {
+            otherHpBar.rectTransform.sizeDelta = new Vector2( otherHpBarStartWidth * ( (float)otherHp.Value / (float)otherCharacter.charHP ),
+                otherHpBar.rectTransform.sizeDelta.y );
+        }
+        else {
+            hpBar.rectTransform.sizeDelta = new Vector2( hpBarStartWidth * ( (float)hp.Value / (float)thisCharacter.charHP ),
+                hpBar.rectTransform.sizeDelta.y );
+        }
     }
 }

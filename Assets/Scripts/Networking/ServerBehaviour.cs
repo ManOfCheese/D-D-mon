@@ -96,8 +96,8 @@ public class ServerBehaviour : MonoBehaviour {
                 Unity.Networking.Transport.NetworkEvent.Type.Empty ) {
                 if ( eventType == Unity.Networking.Transport.NetworkEvent.Type.Data ) {
                     int packetID = stream.ReadInt();
-                    Debug.Log( "Server | Recieved packet: " + allEvents.Items[ packetID ].displayName + " | Connections: " + i +
-                        "-" + ( connections.Length - 1 ) );
+                    //Debug.Log( "Server | Recieved packet: " + allEvents.Items[ packetID ].displayName + " | Connections: " + i +
+                    //    "-" + ( connections.Length - 1 ) );
 
                     //Handle recieved events.
                     allEvents.Items[ packetID ].ReadPacket( stream );

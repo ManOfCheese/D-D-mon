@@ -29,12 +29,7 @@ public class CharacterSelectionChecker : MonoBehaviour {
             }
         }
         else if ( characterID.Value > -1 && otherCharacterID.Value > -1 ) {
-            if ( isHost.Value ) {
-                SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 2 );
-            }
-            else {
-                SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 1 );
-            }
+            SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 1 );
         }
     }
 

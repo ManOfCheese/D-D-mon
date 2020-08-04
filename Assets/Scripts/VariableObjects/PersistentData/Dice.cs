@@ -15,6 +15,6 @@ public class Dice : PersistentSetElement {
     }
 
     public int RollDice() {
-        return Random.Range( 0, sides ) + 1;
+        return Random.Range( 1, sides );
     }
 }

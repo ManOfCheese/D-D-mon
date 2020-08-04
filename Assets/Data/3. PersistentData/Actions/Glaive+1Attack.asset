@@ -15,5 +15,8 @@ MonoBehaviour:
   moveName: Glaive (+1)
   moveDescription: A magical glaive, deals 1d10 + 1 slashing damage.
   moveUses: 50
-  movesToPerform:
+  attackEffects:
   - {fileID: 11400000, guid: 6ad09f49842f7a043b8b94ef10b5f08b, type: 2}
+  healEffects: []
+  defendEffects: []
+  savingThrowEffects: []

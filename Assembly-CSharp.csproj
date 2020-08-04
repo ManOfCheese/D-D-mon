@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Debugging\StringDisplay.cs" />
     <Compile Include="Assets\Scripts\IntValueListener.cs" />
     <Compile Include="Assets\Scripts\IntValueUpdater.cs" />
+    <Compile Include="Assets\Scripts\Networking\ActionRequester.cs" />
     <Compile Include="Assets\Scripts\Networking\CharacterSelectionChecker.cs" />
     <Compile Include="Assets\Scripts\Networking\ClientBehaviour.cs" />
     <Compile Include="Assets\Scripts\Networking\ConnectionChecker.cs" />
@@ -126,7 +127,8 @@
     <Compile Include="Assets\Scripts\VariableObjects\PersistentSets\Vector3_Set.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\RunTimeSet.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\Action_RunTimeSet.cs" />
-    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\IntValue_RunTimeSEt.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\IntValue_RunTimeSet.cs" />
+    <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\Int_RunTimeSet.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\RunTimeSets\NetworkEvent_RunTimeSet.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\VariableObject.cs" />
     <Compile Include="Assets\Scripts\VariableObjects\Variables\BoolValue.cs" />

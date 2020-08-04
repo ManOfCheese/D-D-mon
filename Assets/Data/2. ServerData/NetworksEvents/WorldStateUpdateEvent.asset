@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: WorldStateUpdateEvent
   m_EditorClassIdentifier: 
   displayName: World Update Event
-  eventQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a, type: 2}
+  clientWhoseTurn: {fileID: 11400000, guid: 2c9571f0347ac554088a3afdec6aac99, type: 2}
   playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
   variablesToUpdate: {fileID: 11400000, guid: 813e0cc3bda532e41bae44d070d83781, type: 2}
+  serverWhoseTurn: {fileID: 11400000, guid: 45ce61d6fca553c49bcbba0794c2edcc, type: 2}
   P0WorldStateVariables: {fileID: 11400000, guid: b8399d6088b62e7499f6fb065911ad34,
     type: 2}
   P1WorldStateVariables: {fileID: 11400000, guid: 655c41a7688f8244c8320c68f3005017,

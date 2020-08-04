@@ -54,7 +54,7 @@ public class ClientBehaviour : MonoBehaviour {
             }
             else if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Data ) {
                 int packetID = stream.ReadInt();
-                Debug.Log( "Client | Recieved packet: " + allEvents.Items[ packetID ].displayName );
+                //Debug.Log( "Client | Recieved packet: " + allEvents.Items[ packetID ].displayName );
 
                 //Handle recieved events.
                 allEvents.Items[ packetID ].ReadPacket( stream );
@@ -75,7 +75,7 @@ public class ClientBehaviour : MonoBehaviour {
         }
         //Send queued events.
         for ( int i = 0; i < eventsToSend.Items.Count; i++ ) {
-            Debug.Log( "Client | Sending packet: " + eventsToSend.Items[ i ].displayName );
+            //Debug.Log( "Client | Sending packet: " + eventsToSend.Items[ i ].displayName );
             var writer = driver.BeginSend( NetworkPipeline.Null, connection );
             writer = eventsToSend.Items[ i ].WritePacket( writer );
             driver.EndSend( writer );

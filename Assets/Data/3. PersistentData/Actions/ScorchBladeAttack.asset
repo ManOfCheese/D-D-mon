@@ -16,5 +16,8 @@ MonoBehaviour:
   moveDescription: A scimitar infused with the power of flame, deals 1d6 slashing
     damage and 3d6 fire damage.
   moveUses: 5
-  movesToPerform:
+  attackEffects:
   - {fileID: 11400000, guid: 646a377453324594d8094b11e8acc13c, type: 2}
+  healEffects: []
+  defendEffects: []
+  savingThrowEffects: []

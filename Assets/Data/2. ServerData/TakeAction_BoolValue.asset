@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TakeAction_BoolValue
   m_EditorClassIdentifier: 
   displayName: Take Action
-  applyDefaultOnStartup: 0
-  changedThisFrame: 0
+  applyDefaultOnStartup: 1
+  changedThisFrame: 1
   _value: 0
   defaultValue: 0
   minValue: 0

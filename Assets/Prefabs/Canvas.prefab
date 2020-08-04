@@ -457,6 +457,7 @@ MonoBehaviour:
   charLevelText: {fileID: 125914745937897795}
   charImage: {fileID: 3317461429539529898}
   charHP: {fileID: 4927518966002055219}
+  hpBar: {fileID: 0}
   moveNamesText:
   - {fileID: 931645619469092061}
   - {fileID: 4790950703059099125}
@@ -515,6 +516,7 @@ MonoBehaviour:
   otherCharacterID: {fileID: 11400000, guid: f48740f98db94cd488cb099babc758b7, type: 2}
   otherCharNameText: {fileID: 4041497893537526123}
   otherCharLevelText: {fileID: 3921990757125708246}
+  otherHpBar: {fileID: 0}
   otherCharImage: {fileID: 4759030915660235095}
 --- !u!1 &248000121185203352
 GameObject:

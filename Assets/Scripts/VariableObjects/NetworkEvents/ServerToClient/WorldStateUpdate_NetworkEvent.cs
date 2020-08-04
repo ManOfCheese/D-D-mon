@@ -7,10 +7,12 @@ using Unity.Networking.Transport;
 public class WorldStateUpdate_NetworkEvent : NetworkEvent {
 
     [Header( "Client Side" )]
+    public IntValue clientWhoseTurn;
     public IntValue playerID;
     public IntValue_Set variablesToUpdate;
 
     [Header( "Server Side" )]
+    public IntValue serverWhoseTurn;
     public IntValue_Set P0WorldStateVariables;
     public IntValue_Set P1WorldStateVariables;
     public IntValue_Set OtherWorldStateVariables;
@@ -47,16 +49,18 @@ public class WorldStateUpdate_NetworkEvent : NetworkEvent {
             }
         }
         else if ( playerID.Value == 1 ) {
-            int i = 0;
+            int i = P0WorldStateVariables.Items.Count;
 
             for ( int j = 0; j < P1WorldStateVariables.Items.Count; j++ ) {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;
             }
+            i -= P0WorldStateVariables.Items.Count + P1WorldStateVariables.Items.Count;
             for ( int j = 0; j < P0WorldStateVariables.Items.Count; j++ ) {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;
             }
+            i += P0WorldStateVariables.Items.Count + P1WorldStateVariables.Items.Count;
             for ( int j = 0; j < OtherWorldStateVariables.Items.Count; j++ ) {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;

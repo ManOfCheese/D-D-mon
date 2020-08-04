@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0d81bfb0ab19248b0e4cb2e98babe5, type: 3}
   m_Name: OtherIntValuesToSync_Set
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 45ce61d6fca553c49bcbba0794c2edcc, type: 2}
   useSorting: 0

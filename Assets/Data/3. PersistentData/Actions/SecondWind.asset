@@ -15,5 +15,8 @@ MonoBehaviour:
   moveName: Second Wind
   moveDescription: Regain hit points based on your fighter level.
   moveUses: 2
-  movesToPerform:
+  attackEffects: []
+  healEffects:
   - {fileID: 11400000, guid: 51b5430dd715f1c489f97ac300d80c2e, type: 2}
+  defendEffects: []
+  savingThrowEffects: []

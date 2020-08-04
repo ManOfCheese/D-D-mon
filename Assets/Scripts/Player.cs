@@ -16,15 +16,15 @@ public class Player : MonoBehaviour {
     public IntValue[] statValues;
 
     [Header( "Moves Dictionary" )]
-    public Action[] moves;
-    public IntValue[] moveUses;
+    public Action[] actions;
+    public IntValue[] actionUses;
 
     public Dictionary<CharacterStat, IntValue> statData;
     public Dictionary<Action, IntValue> moveData;
-    public Character character;
+    [HideInInspector] public Character character;
 
     private void Awake() {
-        moves = new Action[ moveUses.Length ];
+        actions = new Action[ actionUses.Length ];
 
         statData = new Dictionary<CharacterStat, IntValue>();
         for ( int i = 0; i < playerStats.Length; i++ ) {
@@ -50,13 +50,13 @@ public class Player : MonoBehaviour {
             }
         }
 
-        for ( int i = 0; i < moves.Length; i++ ) {
-            moves[ i ] = this.character.moveSet[ i ];
+        for ( int i = 0; i < actions.Length; i++ ) {
+            actions[ i ] = this.character.moveSet[ i ];
         }
 
         moveData.Clear();
-        for ( int i = 0; i < moves.Length; i++ ) {
-            moveData.Add( moves[ i ], moveUses[ i ] );
+        for ( int i = 0; i < actions.Length; i++ ) {
+            moveData.Add( actions[ i ], actionUses[ i ] );
         }
 
         SetStatsToDefault();
@@ -68,10 +68,10 @@ public class Player : MonoBehaviour {
             statValues[ i ].Value = character.stats[ i ];
         }
         for ( int i = 0; i < character.moveSet.Length; i++ ) {
-            moves[ i ] = character.moveSet[ i ];
+            actions[ i ] = character.moveSet[ i ];
         }
-        for ( int i = 0; i < moveUses.Length; i++ ) {
-            moveUses[ i ].Value = moves[ i ].moveUses;
+        for ( int i = 0; i < actionUses.Length; i++ ) {
+            actionUses[ i ].Value = actions[ i ].moveUses;
         }
     }
 }

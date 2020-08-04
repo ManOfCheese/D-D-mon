@@ -11,10 +11,11 @@ public class RequestUseMove_NetworkEvent : NetworkEvent {
 
     [Header( "Client Side" )]
     public IntValue playerID;
-    public IntValue_RunTimeSet queuedActionIDs;
+    public Int_RunTimeSet queuedActionIDs;
 
     [Header( "Server Side" )]
     public IntValue whoseTurn;
+    public BoolValue takeAction;
     public Action_RunTimeSet queuedActions;
 
     public override DataStreamWriter WritePacket( DataStreamWriter writer ) {
@@ -22,8 +23,9 @@ public class RequestUseMove_NetworkEvent : NetworkEvent {
         writer.WriteInt( playerID.Value );
         writer.WriteInt( queuedActionIDs.Items.Count );
         for ( int i = 0; i < queuedActionIDs.Items.Count; i++ ) {
-            writer.WriteInt( queuedActionIDs.Items[ i ].Value );
+            writer.WriteInt( queuedActionIDs.Items[ i ] );
         }
+        queuedActionIDs.Items.Clear();
         return writer;
     }
 
@@ -36,7 +38,7 @@ public class RequestUseMove_NetworkEvent : NetworkEvent {
                 int actionIndex = stream.ReadInt();
                 queuedActions.Add( allActions.Items[ actionIndex ] );
             }
+            takeAction.Value = true;
         }
     }
-
 }

@@ -14,7 +14,6 @@ public class RunTimeSet<T> : ScriptableObject {
 	public void Add( T item ) {
 		if ( !Items.Contains( item ) ) {
 			Items.Add( item );
-            Debug.Log( "Added: " + item );
 			if ( OnAdded != null ) {
 				OnAdded.Invoke( item );
 			}

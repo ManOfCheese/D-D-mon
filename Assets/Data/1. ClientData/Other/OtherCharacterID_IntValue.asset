@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Other CharacterID
   applyDefaultOnStartup: 0
   changedThisFrame: 1
-  _value: -1
+  _value: 0
   playerID: {fileID: 0}
   defaultValue: -1
   useLimits: 0

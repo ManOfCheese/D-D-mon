@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour {
 
+    [Header( "References" )]
     public BoolValue takeAction;
     public Action_RunTimeSet queuedActions;
     public IntValue whoseTurn;
@@ -13,8 +14,16 @@ public class CombatManager : MonoBehaviour {
     public CharacterStat armorClass;
     public CharacterStat profBonus;
 
+    [Header( "Networking" )]
+    public NetworkEvent_RunTimeSet serverToClientEventQueue;
+    public NetworkEvent updateWorldStateEvent;
+
     private void OnEnable() {
         takeAction.onValueChanged += OnTakeAction;
+    }
+
+    private void OnDisable() {
+        takeAction.onValueChanged -= OnTakeAction;
     }
 
     public void OnTakeAction( bool value ) {
@@ -41,14 +50,16 @@ public class CombatManager : MonoBehaviour {
 
                         //Roll all dice and count up the damage.
                         for ( int k = 0; k < queuedActions.Items[ i ].attackEffects[ j ].diceAmount.Length; k++ ) {
-                            newDamage = queuedActions.Items[ i ].attackEffects[ j ].diceTypes[ k ].RollDice();
+                            for ( int l = 0; l < queuedActions.Items[ i ].attackEffects[ j ].diceAmount[ k ]; l++ ) {
+                                newDamage = queuedActions.Items[ i ].attackEffects[ j ].diceTypes[ k ].RollDice();
 
-                            //Sort damage into the dictionary based on DamageType;
-                            if ( damage.ContainsKey( queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ] ) ) {
-                                damage.Add( queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ], newDamage );
-                            }
-                            else {
-                                damage[ queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ] ] += newDamage;
+                                //Sort damage into the dictionary based on DamageType;
+                                if ( damage.ContainsKey( queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ] ) ) {
+                                    damage[ queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ] ] += newDamage;
+                                }
+                                else {
+                                    damage.Add( queuedActions.Items[ i ].attackEffects[ j ].damageTypes[ k ], newDamage );
+                                }
                             }
                         }
 
@@ -85,14 +96,19 @@ public class CombatManager : MonoBehaviour {
 
                         players[ otherPlayerIndex ].hp.Value -= Mathf.RoundToInt( finalDamage );
                     }
+                    else {
+                        Debug.Log( "Missed" );
+                    }
                 }
 
-                for ( int j = 0; j < queuedActions.Items[ j ].healEffects.Length; j++ ) {
+                for ( int j = 0; j < queuedActions.Items[ i ].healEffects.Length; j++ ) {
                     int healing = 0;
 
                     //Roll the dice and count up the healing.
                     for ( int k = 0; k < queuedActions.Items[ i ].healEffects[ j ].diceAmount.Length; k++ ) {
-                        healing += queuedActions.Items[ i ].healEffects[ j ].diceTypes[ k ].RollDice();
+                        for ( int l = 0; l < queuedActions.Items[ i ].healEffects[ j ].diceAmount[ k ]; l++ ) {
+                            healing += queuedActions.Items[ i ].healEffects[ j ].diceTypes[ k ].RollDice();
+                        }
                     }
                     healing += queuedActions.Items[ i ].healEffects[ j ].staticHealing;
 
@@ -102,48 +118,58 @@ public class CombatManager : MonoBehaviour {
                     }
 
                     players[ actingPlayerIndex ].hp.Value += healing;
+                    Debug.Log( "healed: " + healing );
                 }
                 for ( int j = 0; j < queuedActions.Items[ i ].defendEffects.Length; j++ ) {
                     for ( int k = 0; k < queuedActions.Items[ i ].defendEffects[ j ].defendsAgainst.Length; k++ ) {
                         players[ actingPlayerIndex ].statData.TryGetValue( queuedActions.Items[ i ].defendEffects[ j ].defendsAgainst[ k ].resistanceStat, out IntValue damageResistance );
                         damageResistance.Value -= Mathf.RoundToInt( queuedActions.Items[ i ].defendEffects[ j ].defenseIncrease[ k ] * 100 );
+                        Debug.Log( "Changed: " + queuedActions.Items[ i ].defendEffects[ j ].defendsAgainst[ k ].resistanceStat.name
+                            + " to " + damageResistance.Value );
                     }
                 }
-                for ( int j = 0; j < queuedActions.Items[ j ].savingThrowEffects.Length; j++ ) {
+                for ( int j = 0; j < queuedActions.Items[ i ].savingThrowEffects.Length; j++ ) {
                     //Calculate save DC.
                     players[ actingPlayerIndex ].statData.TryGetValue( players[ actingPlayerIndex ].character.spellStat, out IntValue spellStat );
                     players[ actingPlayerIndex ].statData.TryGetValue( profBonus, out IntValue proficiencyBonus );
                     int saveDC = 8 + RPGMath.StatMath.ModifierFromStatValue( spellStat.Value ) + proficiencyBonus.Value;
 
                     float damageModifier = 1f;
-                    if ( d20.RollDice() > saveDC ) {
+                    players[ otherPlayerIndex ].statData.TryGetValue( queuedActions.Items[ i ].savingThrowEffects[ j ].savingThrowStat, out IntValue savingThrowStat );
+                    int roll = d20.RollDice() + RPGMath.StatMath.ModifierFromStatValue( savingThrowStat.Value );
+                    if ( roll > saveDC ) {
                         damageModifier = 0.5f;
                     }
+                    Debug.Log( roll + " / " + saveDC );
 
                     Dictionary<DamageType, int> damage = new Dictionary<DamageType, int>();
                     int newDamage;
 
                     //Roll all dice and count up the damage.
                     for ( int k = 0; k < queuedActions.Items[ i ].savingThrowEffects[ j ].diceAmount.Length; k++ ) {
-                        newDamage = queuedActions.Items[ i ].savingThrowEffects[ j ].diceTypes[ k ].RollDice();
+                        for ( int l = 0; l < queuedActions.Items[ i ].savingThrowEffects[ j ].diceAmount[ k ]; l++ ) {
+                            newDamage = queuedActions.Items[ i ].savingThrowEffects[ j ].diceTypes[ k ].RollDice();
 
-                        //Sort damage into the dictionary based on DamageType;
-                        if ( damage.ContainsKey( queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ] ) ) {
-                            damage.Add( queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ], newDamage );
-                        }
-                        else {
-                            damage[ queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ] ] += newDamage;
+                            //Sort damage into the dictionary based on DamageType;
+                            if ( damage.ContainsKey( queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ] ) ) {
+                                damage[ queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ] ] += newDamage;
+                            }
+                            else {
+                                damage.Add( queuedActions.Items[ i ].savingThrowEffects[ j ].damageTypes[ k ], newDamage );
+                            }
                         }
                     }
 
                     //Add static damage.
                     newDamage = queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamage;
 
-                    if ( damage.ContainsKey( queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType ) ) {
-                        damage.Add( queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType, newDamage );
-                    }
-                    else {
-                        damage[ queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType ] += newDamage;
+                    if ( queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType != null ) {
+                        if ( damage.ContainsKey( queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType ) ) {
+                            damage.Add( queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType, newDamage );
+                        }
+                        else {
+                            damage[ queuedActions.Items[ i ].savingThrowEffects[ j ].staticDamageType ] += newDamage;
+                        }
                     }
 
                     int finalDamage = 0;
@@ -151,15 +177,21 @@ public class CombatManager : MonoBehaviour {
                     //Go through damageType, damage pair and account for damage resistances;
                     foreach ( KeyValuePair<DamageType, int> entry in damage ) {
                         players[ actingPlayerIndex ].statData.TryGetValue( entry.Key.resistanceStat, out IntValue damageResistance );
-                        damage[ entry.Key ] *= ( damageResistance.Value / 100 );
-                        finalDamage += damage[ entry.Key ];
+                        int damageOfType = damage[ entry.Key ] * ( damageResistance.Value / 100 );
+                        finalDamage += damageOfType;
                     }
 
                     players[ otherPlayerIndex ].hp.Value -= Mathf.RoundToInt( finalDamage * damageModifier );
+                    Debug.Log( "dealt: " + ( Mathf.RoundToInt( finalDamage * damageModifier ) ) + " damage" );
                 }
             }
             queuedActions.Items.Clear();
+            whoseTurn.Value += 1;
+            if ( whoseTurn.Value > 1 ) {
+                whoseTurn.Value = 0;
+            }
+            serverToClientEventQueue.Add( updateWorldStateEvent );
+            takeAction.Value = false;
         }
     }
-
 }

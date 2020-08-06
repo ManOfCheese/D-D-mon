@@ -206,10 +206,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5161901958885038778}
   - component: {fileID: 5161901958885038756}
-  - component: {fileID: 5161901958885038779}
   - component: {fileID: 307435014}
+  - component: {fileID: 3359730372493321078}
   m_Layer: 0
-  m_Name: HostBehaviour
+  m_Name: ServerBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,23 +251,6 @@ MonoBehaviour:
   switchTurnEvent: {fileID: 11400000, guid: 0a1b1aacc2c1ef34d82e1aa0e6034b9b, type: 2}
   playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
   assignedPlayerID: {fileID: 11400000, guid: fd2f4554d2f7de843889afff19281f8b, type: 2}
---- !u!114 &5161901958885038779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5161901958885038777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b5d05c3578a4f4281b3613b6e9d1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allEvents: {fileID: 11400000, guid: 0ccba5efff359fe4a999671a21fea38a, type: 2}
-  eventsToSend: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
-  lastRecievedPacket: {fileID: 11400000, guid: 4f7cb3109cda5b744aa7200e1b7cf2b0, type: 2}
-  isConnected: {fileID: 11400000, guid: 059e2ca03636d3449a57f69182a9cb3c, type: 2}
-  sceneToLoadOnDisconnect: 1
 --- !u!114 &307435014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +272,27 @@ MonoBehaviour:
   d20: {fileID: 11400000, guid: 371dc5362ed03d14fb476e2e0988602f, type: 2}
   armorClass: {fileID: 11400000, guid: dfe6d4050b08e1d41a57ba39c2ae5485, type: 2}
   profBonus: {fileID: 11400000, guid: 8dad1c97e81700f4492037492d4a57da, type: 2}
+  p0Score: {fileID: 11400000, guid: de8f39a0c81f6c84eacf46ac653655d6, type: 2}
+  p1Score: {fileID: 11400000, guid: ce755012ceaf4bd49b145cb4f5e91b3a, type: 2}
+  winnerID: {fileID: 11400000, guid: 3ac60c096019eac469ee939c4fd1e157, type: 2}
   serverToClientEventQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a,
     type: 2}
   updateWorldStateEvent: {fileID: 11400000, guid: bf89aeec1c119de429be6e219c70e671,
     type: 2}
+  winEvent: {fileID: 11400000, guid: fd5f654a20d514d459ecea56dfbfc9c3, type: 2}
+--- !u!114 &3359730372493321078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161901958885038777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea80d4c192110f45846d9c175b101f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userID: {fileID: 11400000, guid: fb4d727f610943f42a3580c99c6e3d18, type: 2}
+  username: {fileID: 11400000, guid: d733556a6e643514bbd47f17347d3940, type: 2}
+  otherUserID: {fileID: 11400000, guid: e238126ca868a9946abf7656ea8980fb, type: 2}
+  otherUsername: {fileID: 11400000, guid: 04d89a3f9df23394391eb8dfc181cf91, type: 2}

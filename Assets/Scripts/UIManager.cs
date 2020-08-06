@@ -47,11 +47,18 @@ public class UIManager : MonoBehaviour {
         InitializeUI();
     }
 
-    public virtual void OnEnable() {
+    public void OnEnable() {
         hp.onValueChanged += OnHPChange;
         otherHp.onValueChanged += OnOtherHPChange;
         otherCharacterID.onValueChanged += OtherCharacterIDChanged;
         actionList.OnAdded += UpdateActionUI;
+    }
+
+    public void OnDisable() {
+        hp.onValueChanged -= OnHPChange;
+        otherHp.onValueChanged -= OnOtherHPChange;
+        otherCharacterID.onValueChanged -= OtherCharacterIDChanged;
+        actionList.OnAdded -= UpdateActionUI;
     }
 
     public virtual void InitializeUI() {
@@ -110,7 +117,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OnHPChange( int newValue ) {
-        if ( thisCharacter != null ) {
+        if ( thisCharacter != null && charHP != null ) {
             charHP.text = hp.Value + " / " + thisCharacter.charHP;
             UpdateHPBar( false );
         }
@@ -123,11 +130,11 @@ public class UIManager : MonoBehaviour {
     }
 
     public void UpdateHPBar( bool isOther ) {
-        if ( isOther ) {
+        if ( isOther && otherHpBar != null ) {
             otherHpBar.rectTransform.sizeDelta = new Vector2( otherHpBarStartWidth * ( (float)otherHp.Value / (float)otherCharacter.charHP ),
                 otherHpBar.rectTransform.sizeDelta.y );
         }
-        else {
+        else if ( hpBar != null ) {
             hpBar.rectTransform.sizeDelta = new Vector2( hpBarStartWidth * ( (float)hp.Value / (float)thisCharacter.charHP ),
                 hpBar.rectTransform.sizeDelta.y );
         }

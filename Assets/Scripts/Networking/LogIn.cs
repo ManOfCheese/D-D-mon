@@ -40,10 +40,11 @@ public class LogIn : MonoBehaviour {
             Debug.Log( www.error );
         }
         else {
-            Debug.Log( www.downloadHandler.text );
+            string value = www.downloadHandler.text;
             if ( isServerLogIn ) {
                 if ( www.downloadHandler.text != "0" ) {
-                    sessionID.Value = www.downloadHandler.text;
+                    sessionID.Value = value;
+                    Debug.Log( sessionID.Value );
                     feedbackText.text = "Logging in...";
                     SceneLoader.LoadNextScene();
                 }

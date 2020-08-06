@@ -12,7 +12,6 @@ public class WorldStateUpdate_NetworkEvent : NetworkEvent {
     public IntValue_Set variablesToUpdate;
 
     [Header( "Server Side" )]
-    public IntValue serverWhoseTurn;
     public IntValue_Set P0WorldStateVariables;
     public IntValue_Set P1WorldStateVariables;
     public IntValue_Set OtherWorldStateVariables;
@@ -55,12 +54,12 @@ public class WorldStateUpdate_NetworkEvent : NetworkEvent {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;
             }
-            i -= P0WorldStateVariables.Items.Count + P1WorldStateVariables.Items.Count;
+            i -= P0WorldStateVariables.Items.Count + P1WorldStateVariables.Items.Count; 
             for ( int j = 0; j < P0WorldStateVariables.Items.Count; j++ ) {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;
             }
-            i += P0WorldStateVariables.Items.Count + P1WorldStateVariables.Items.Count;
+            i += P1WorldStateVariables.Items.Count;
             for ( int j = 0; j < OtherWorldStateVariables.Items.Count; j++ ) {
                 variablesToUpdate.Items[ i ].Value = stream.ReadInt();
                 i++;

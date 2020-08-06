@@ -10,12 +10,12 @@ public enum StatType {
 [CreateAssetMenu( fileName = "PlayerStat", menuName = "PersistentData/PlayerStat" )]
 public class CharacterStat : PersistentSetElement {
 
-    public CharacterStat_Set allPlayerStats;
+    public CharacterStat_Set allCharacterStats;
     public StatType statType;
     public Sprite statIcon;
     string statName;
 
     private void Awake() {
-        allPlayerStats.Add( this );
+        allCharacterStats.Add( this );
     }
 }

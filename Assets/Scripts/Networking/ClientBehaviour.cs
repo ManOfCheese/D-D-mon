@@ -11,6 +11,7 @@ public class ClientBehaviour : MonoBehaviour {
     [Header( "References" )]
     public NetworkEvent_Set allEvents;
     public NetworkEvent_RunTimeSet eventsToSend;
+    public NetworkEvent updatePlayerNameEvent;
     public StringValue lastRecievedPacket;
     public BoolValue isConnected;
     public int sceneToLoadOnDisconnect;
@@ -51,10 +52,11 @@ public class ClientBehaviour : MonoBehaviour {
             if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Connect ) {
                 isConnected.Value = true;
                 Debug.Log( "Client | We are now connected to the server" );
+                eventsToSend.Add( updatePlayerNameEvent );
             }
             else if ( cmd == Unity.Networking.Transport.NetworkEvent.Type.Data ) {
                 int packetID = stream.ReadInt();
-                //Debug.Log( "Client | Recieved packet: " + allEvents.Items[ packetID ].displayName );
+                Debug.Log( "Client | Recieved packet: " + allEvents.Items[ packetID ].displayName );
 
                 //Handle recieved events.
                 allEvents.Items[ packetID ].ReadPacket( stream );
@@ -73,9 +75,10 @@ public class ClientBehaviour : MonoBehaviour {
                 connection = default( NetworkConnection );
             }
         }
+
         //Send queued events.
         for ( int i = 0; i < eventsToSend.Items.Count; i++ ) {
-            //Debug.Log( "Client | Sending packet: " + eventsToSend.Items[ i ].displayName );
+            Debug.Log( "Client | Sending packet: " + eventsToSend.Items[ i ].displayName );
             var writer = driver.BeginSend( NetworkPipeline.Null, connection );
             writer = eventsToSend.Items[ i ].WritePacket( writer );
             driver.EndSend( writer );

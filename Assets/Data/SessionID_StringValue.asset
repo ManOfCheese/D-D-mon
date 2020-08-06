@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SessionID_StringValue
   m_EditorClassIdentifier: 
   displayName: Session ID
-  applyDefaultOnStartup: 0
-  changedThisFrame: 0
-  _value: 
+  applyDefaultOnStartup: 1
+  changedThisFrame: 1
+  _value: jq9p0r0at23jqifg0ogra8bvukl2kisoikra7notqbu1b1ibs800
   defaultValue: 

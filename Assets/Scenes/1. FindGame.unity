@@ -426,8 +426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientBehaviour: {fileID: 6043954958954946338, guid: 28b68354eba13d84da9673e5fb8c3f3d,
     type: 3}
-  hostBehaviour: {fileID: 5161901958885038777, guid: 2aeca10d6ee1e3645a483d6356e587ab,
+  serverBehaviour: {fileID: 5161901958885038777, guid: 2aeca10d6ee1e3645a483d6356e587ab,
     type: 3}
+  isHost: {fileID: 11400000, guid: 1dfca3b226eccb7418d1b991aee80dab, type: 2}
 --- !u!114 &794507376
 MonoBehaviour:
   m_ObjectHideFlags: 0

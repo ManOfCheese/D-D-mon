@@ -16,8 +16,8 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
 
     [Header( "Server Side" )]
     public NetworkEvent reactionEvent;
-    public IntValue p0PlayerCharacter;
-    public IntValue p1PlayerCharacter;
+    public IntValue p0PlayerCharacterID;
+    public IntValue p1PlayerCharacterID;
 
     public override DataStreamWriter WritePacket( DataStreamWriter writer ) {
         writer.WriteInt( ID );
@@ -31,10 +31,10 @@ public class RequestCharacterSelect_NetworkEvent : NetworkEvent {
         int selectedCharacter = stream.ReadInt();
 
         if ( selectorPlayerID == 0 ) {
-            p0PlayerCharacter.Value = selectedCharacter;
+            p0PlayerCharacterID.Value = selectedCharacter;
         }
         else if ( selectorPlayerID == 1 ) {
-            p1PlayerCharacter.Value = selectedCharacter;
+            p1PlayerCharacterID.Value = selectedCharacter;
         }
         serverToClientQueue.Add( reactionEvent );
     }

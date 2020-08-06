@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public IntValue hp;
 
     [Header( "Stats Dictionary" )]
-    public CharacterStat[] playerStats;
+    public CharacterStat[] characterStats;
     public IntValue[] statValues;
 
     [Header( "Moves Dictionary" )]
@@ -20,17 +20,17 @@ public class Player : MonoBehaviour {
     public IntValue[] actionUses;
 
     public Dictionary<CharacterStat, IntValue> statData;
-    public Dictionary<Action, IntValue> moveData;
+    public Dictionary<Action, IntValue> actionData;
     [HideInInspector] public Character character;
 
     private void Awake() {
         actions = new Action[ actionUses.Length ];
 
         statData = new Dictionary<CharacterStat, IntValue>();
-        for ( int i = 0; i < playerStats.Length; i++ ) {
-            statData.Add( playerStats[ i ], statValues[ i ] );
+        for ( int i = 0; i < characterStats.Length; i++ ) {
+            statData.Add( characterStats[ i ], statValues[ i ] );
         }
-        moveData = new Dictionary<Action, IntValue>();
+        actionData = new Dictionary<Action, IntValue>();
 
         if ( characterID.Value >= 0 ) {
             PickCharacter( characterID.Value );
@@ -54,9 +54,9 @@ public class Player : MonoBehaviour {
             actions[ i ] = this.character.moveSet[ i ];
         }
 
-        moveData.Clear();
+        actionData.Clear();
         for ( int i = 0; i < actions.Length; i++ ) {
-            moveData.Add( actions[ i ], actionUses[ i ] );
+            actionData.Add( actions[ i ], actionUses[ i ] );
         }
 
         SetStatsToDefault();

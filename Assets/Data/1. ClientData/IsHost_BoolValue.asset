@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Is Host
   applyDefaultOnStartup: 0
   changedThisFrame: 0
-  _value: 0
+  _value: 1
   defaultValue: 0
   minValue: 0
   maxValue: 0

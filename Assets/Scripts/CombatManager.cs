@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Entities.UniversalDelegates;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour {
 
@@ -13,10 +14,16 @@ public class CombatManager : MonoBehaviour {
     public Dice d20;
     public CharacterStat armorClass;
     public CharacterStat profBonus;
+    public IntValue p0Score;
+    public IntValue p1Score;
+    public IntValue winnerID;
 
     [Header( "Networking" )]
     public NetworkEvent_RunTimeSet serverToClientEventQueue;
     public NetworkEvent updateWorldStateEvent;
+    public NetworkEvent winEvent;
+
+    private int turnCount;
 
     private void OnEnable() {
         takeAction.onValueChanged += OnTakeAction;
@@ -28,6 +35,7 @@ public class CombatManager : MonoBehaviour {
 
     public void OnTakeAction( bool value ) {
         if ( value ) {
+            turnCount++;
             int actingPlayerIndex = whoseTurn.Value;
             int otherPlayerIndex;
             if ( whoseTurn.Value + 1 > players.Length - 1 ) {
@@ -66,11 +74,13 @@ public class CombatManager : MonoBehaviour {
                         //Add static damage.
                         newDamage = queuedActions.Items[ i ].attackEffects[ j ].staticDamage;
 
-                        if ( damage.ContainsKey( queuedActions.Items[ i ].attackEffects[ j ].staticDamageType ) ) {
-                            damage.Add( queuedActions.Items[ i ].attackEffects[ j ].staticDamageType, newDamage );
-                        }
-                        else {
-                            damage[ queuedActions.Items[ i ].attackEffects[ j ].staticDamageType ] += newDamage;
+                        if ( queuedActions.Items[ i ].attackEffects[ j ].staticDamageType != null ) {
+                            if ( damage.ContainsKey( queuedActions.Items[ i ].attackEffects[ j ].staticDamageType ) ) {
+                                damage.Add( queuedActions.Items[ i ].attackEffects[ j ].staticDamageType, newDamage );
+                            }
+                            else {
+                                damage[ queuedActions.Items[ i ].attackEffects[ j ].staticDamageType ] += newDamage;
+                            }
                         }
 
                         //If necessary add the attack stat modifier.
@@ -94,7 +104,14 @@ public class CombatManager : MonoBehaviour {
                             finalDamage += damage[ entry.Key ];
                         }
 
-                        players[ otherPlayerIndex ].hp.Value -= Mathf.RoundToInt( finalDamage );
+                        finalDamage = Mathf.RoundToInt( finalDamage );
+                        players[ otherPlayerIndex ].hp.Value -= finalDamage;
+                        if ( actingPlayerIndex == 0 ) {
+                            p0Score.Value += finalDamage;
+                        }
+                        else if ( actingPlayerIndex == 1 ) {
+                            p1Score.Value += finalDamage;
+                        }
                     }
                     else {
                         Debug.Log( "Missed" );
@@ -119,6 +136,13 @@ public class CombatManager : MonoBehaviour {
 
                     players[ actingPlayerIndex ].hp.Value += healing;
                     Debug.Log( "healed: " + healing );
+
+                    if ( actingPlayerIndex == 0 ) {
+                        p0Score.Value += healing;
+                    }
+                    else if ( actingPlayerIndex == 1 ) {
+                        p1Score.Value += healing;
+                    }
                 }
                 for ( int j = 0; j < queuedActions.Items[ i ].defendEffects.Length; j++ ) {
                     for ( int k = 0; k < queuedActions.Items[ i ].defendEffects[ j ].defendsAgainst.Length; k++ ) {
@@ -139,8 +163,9 @@ public class CombatManager : MonoBehaviour {
                     int roll = d20.RollDice() + RPGMath.StatMath.ModifierFromStatValue( savingThrowStat.Value );
                     if ( roll > saveDC ) {
                         damageModifier = 0.5f;
+                        Debug.Log( roll + " / " + saveDC + " Save Succeeded!" );
                     }
-                    Debug.Log( roll + " / " + saveDC );
+                    Debug.Log( roll + " / " + saveDC + " Save Failed" );
 
                     Dictionary<DamageType, int> damage = new Dictionary<DamageType, int>();
                     int newDamage;
@@ -181,8 +206,18 @@ public class CombatManager : MonoBehaviour {
                         finalDamage += damageOfType;
                     }
 
-                    players[ otherPlayerIndex ].hp.Value -= Mathf.RoundToInt( finalDamage * damageModifier );
-                    Debug.Log( "dealt: " + ( Mathf.RoundToInt( finalDamage * damageModifier ) ) + " damage" );
+                    finalDamage = Mathf.RoundToInt( finalDamage * damageModifier );
+                    players[ otherPlayerIndex ].hp.Value -= finalDamage;
+                    Debug.Log( "dealt: " + finalDamage + " damage" );
+
+                    if ( actingPlayerIndex == 0 ) {
+                        p0Score.Value += finalDamage;
+                        p1Score.Value -= finalDamage;
+                    }
+                    else if ( actingPlayerIndex == 1 ) {
+                        p1Score.Value += finalDamage;
+                        p0Score.Value -= finalDamage;
+                    }
                 }
             }
             queuedActions.Items.Clear();
@@ -190,8 +225,23 @@ public class CombatManager : MonoBehaviour {
             if ( whoseTurn.Value > 1 ) {
                 whoseTurn.Value = 0;
             }
+
+            if ( players[ otherPlayerIndex ].hp.Value <= 0 ) {
+                winnerID.Value = actingPlayerIndex;
+                OnGameEnd();
+            }
+            else if ( players[ actingPlayerIndex ].hp.Value <= 0 ) {
+                winnerID.Value = otherPlayerIndex;
+                OnGameEnd();
+            }
             serverToClientEventQueue.Add( updateWorldStateEvent );
             takeAction.Value = false;
         }
+    }
+
+    public void OnGameEnd() {
+        p0Score.Value /= turnCount;
+        p1Score.Value /= turnCount;
+        serverToClientEventQueue.Add( winEvent );
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: OtherCharacterID_IntValue
   m_EditorClassIdentifier: 
   displayName: Other CharacterID
-  applyDefaultOnStartup: 0
+  applyDefaultOnStartup: 1
   changedThisFrame: 1
-  _value: 0
+  _value: -1
   playerID: {fileID: 0}
   defaultValue: -1
   useLimits: 0

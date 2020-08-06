@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05da373838cf38a4e94f88083b740f90, type: 3}
+  m_Name: SubmitPlayerName_NetworkEvent
+  m_EditorClassIdentifier: 
+  displayName: Update Player Name
+  serverToClientQueue: {fileID: 11400000, guid: 6441b776d7499a544b9843c14c04bd4a,
+    type: 2}
+  updateUserIDEvent: {fileID: 11400000, guid: 20326b2d2d2c0d04ea50fda580da6840, type: 2}
+  playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
+  userID: {fileID: 11400000, guid: fb4d727f610943f42a3580c99c6e3d18, type: 2}
+  p0UserID: {fileID: 11400000, guid: ec997835fa4578443a879065265729ec, type: 2}
+  p1UserID: {fileID: 11400000, guid: b716edbaa908bb84f8d6f7c6bace50ae, type: 2}

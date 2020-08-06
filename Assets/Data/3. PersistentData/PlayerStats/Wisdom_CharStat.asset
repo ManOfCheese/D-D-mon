@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4551f1b6e1c94c743913764e2c1daf85, type: 3}
   m_Name: Wisdom_CharStat
   m_EditorClassIdentifier: 
-  allPlayerStats: {fileID: 11400000, guid: ba3436ebcdf7b5346b1725af69ded5fc, type: 2}
+  allCharacterStats: {fileID: 11400000, guid: ba3436ebcdf7b5346b1725af69ded5fc, type: 2}
   statType: 0
   statIcon: {fileID: 0}

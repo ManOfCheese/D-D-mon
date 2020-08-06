@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: OtherHP_IntValue
   m_EditorClassIdentifier: 
   displayName: 
-  applyDefaultOnStartup: 0
-  changedThisFrame: 0
-  _value: 0
+  applyDefaultOnStartup: 1
+  changedThisFrame: 1
+  _value: -10
   playerID: {fileID: 11400000, guid: 8027c8746762dfb43aa887f01542608c, type: 2}
   defaultValue: 0
   useLimits: 0

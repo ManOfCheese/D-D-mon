@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6043954958954946339}
   - component: {fileID: 6043954958954946332}
+  - component: {fileID: -2790581411733357381}
   m_Layer: 0
   m_Name: ClientBehaviour
   m_TagString: Untagged
@@ -45,6 +46,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allEvents: {fileID: 11400000, guid: 0ccba5efff359fe4a999671a21fea38a, type: 2}
   eventsToSend: {fileID: 11400000, guid: 360026725df516b4bbf2437ff6629860, type: 2}
+  updatePlayerNameEvent: {fileID: 11400000, guid: 167bdbb1958a5a64f9498db528fa1f9b,
+    type: 2}
   lastRecievedPacket: {fileID: 11400000, guid: 4f7cb3109cda5b744aa7200e1b7cf2b0, type: 2}
   isConnected: {fileID: 11400000, guid: 059e2ca03636d3449a57f69182a9cb3c, type: 2}
   sceneToLoadOnDisconnect: 1
+--- !u!114 &-2790581411733357381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043954958954946338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea80d4c192110f45846d9c175b101f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userID: {fileID: 11400000, guid: fb4d727f610943f42a3580c99c6e3d18, type: 2}
+  username: {fileID: 11400000, guid: d733556a6e643514bbd47f17347d3940, type: 2}
+  otherUserID: {fileID: 11400000, guid: e238126ca868a9946abf7656ea8980fb, type: 2}
+  otherUsername: {fileID: 11400000, guid: 04d89a3f9df23394391eb8dfc181cf91, type: 2}

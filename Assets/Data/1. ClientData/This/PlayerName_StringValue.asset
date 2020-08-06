@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerName_StringValue
   m_EditorClassIdentifier: 
   displayName: Player Name
-  applyDefaultOnStartup: 1
-  changedThisFrame: 0
-  _value: 
+  applyDefaultOnStartup: 0
+  changedThisFrame: 1
+  _value: Mothman
   defaultValue: 
